@@ -1,0 +1,65 @@
+Lista de Dados:
+
+Banco Financeiro: 
+- ID do Banco
+- Razão Social
+- cnpj
+- Endereço
+- Agência
+
+Cadastro Usuario:
+- ID Cadastro Usuário
+- FK Banco Financeiro
+- Nome Completo
+- Email
+- Telefone
+- Cargo
+- Data Nascimento
+- Senha para Login
+
+Usuário do computador:
+- ID Usuário
+- FK Caixa Eletronico \\
+- Nome
+- Email
+
+Caixa Eletronico:
+- ID do Caixa Eletronico
+- FK Banco \\
+- Sistema Operacional Atual
+- Status(Operando, Manutenção ou Desativado)
+- Usuario Ativo(Usuario logado no momento)
+
+Processador:
+- ID do Processador
+- FK do Computador \\
+- Nome do Processador
+- Arquitetura(x86 bits ou x64 bits)
+- Frequência do processador
+- Uso de frequência
+
+Memória RAM:
+- ID da Memória RAM
+- FK Computador\\
+- Nome da RAM
+- Tamanho da RAM
+- Frequência da RAM
+
+Armazenamento:
+- ID HDD ou SDD
+- FK Computador\\
+- Nome do Armazenamento
+- Tamanho do armazenamento
+- Velocidade de leitura
+- Velocidade de escrita
+
+Registros:
+- ID Registro
+- Fk Processador
+- Fk Memoria RAM
+- Fk Armazenamento
+- Porcentagem de uso do Processador
+- Frequencia de uso do processador
+- Porcentagem de uso da RAM 
+- Qtd de memoria Ram em uso
+- Qtd de Armazenamento em uso
