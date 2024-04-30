@@ -53,6 +53,14 @@ create table atm (
     fkBanco int
 );
 
+create table janela(
+	idJanela int primary key auto_increment,
+    fkAtm int,
+    tituloJanela varchar(200)
+);
+
+select*from janela;
+
 create table processador(
 	idProcessador int primary key auto_increment,
     nomeProcessador varchar(100),
@@ -206,8 +214,12 @@ alter table alerta
 	add constraint alertaRegistroUsbConectado
 		foreign key (fkRegistroDispositivoUsbConectado)
         references registroDispositivoUsbConectado(idRegistroDispositivoUsbConectado);
-        
-        
+
+-- inserindo dado na tabela Banco para testar aplicação Java        
+insert into banco values
+(null, 'Bradesco', 'Banco Bradesco S.A', '59456277000176');
+insert into janela values
+(null, 1, 'Curso: 2ADSA - Linguagem de Programação 2024/1');     
 -- relatorio <- alerta/baseConhecimento
 alter table relatorio
 	add constraint relatorioAlerta
@@ -219,9 +231,7 @@ alter table relatorio
 		foreign key (fkBaseConhecimento)
         references baseConhecimento(idBaseConhecimento);
 
--- inserindo dado na tabela Banco para testar aplicação Java        
-insert into banco values
-(null, "Bradesco", 'Banco Bradesco S.A', '59456277000176');
+
 
 -- Atm
 select * from atm;

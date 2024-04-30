@@ -38,6 +38,6 @@ public class DispositivoUsbModel {
                 "idDispositivoUsb=" + idDispositivoUsb +
                 ", nomeDispositivo='" + nomeDispositivo + '\'' +
                 ", fkAtm=" + fkAtm +
-                ' |';
+                '-';
     }
 }

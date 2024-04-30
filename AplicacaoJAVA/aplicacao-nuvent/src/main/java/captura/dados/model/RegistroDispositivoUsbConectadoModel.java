@@ -48,6 +48,6 @@ public class RegistroDispositivoUsbConectadoModel {
                 ", fkRegistro=" + fkRegistro +
                 ", fkDispositivoUsb=" + fkDispositivoUsb +
                 ", conectado=" + conectado +
-                '| ';
+                '-';
     }
 }

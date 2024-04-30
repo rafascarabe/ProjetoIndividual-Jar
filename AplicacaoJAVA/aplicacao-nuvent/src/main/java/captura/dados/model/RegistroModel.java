@@ -138,6 +138,6 @@ public class RegistroModel {
                 ", fkProcessador=" + fkProcessador +
                 ", fkMemoria=" + fkMemoria +
                 ", fkDisco=" + fkDisco +
-                ' |';
+                '-';
     }
 }

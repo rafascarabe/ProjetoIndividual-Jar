@@ -51,6 +51,6 @@ public class DiscoModel {
                 ", modeloDisco='" + modeloDisco + '\'' +
                 ", volumeDisco='" + volumeDisco + '\'' +
                 ", fkAtm=" + fkAtm +
-                ' |';
+                '-';
     }
 }

@@ -31,6 +31,9 @@ public class Main {
         discoService.inserirPegarModeloVolumeDiscoLooca();
         dispositivoUsbService.inserirPegarNomeDispositivo();
 
+
+
+
         List<BancoModel> listaTeste = templateMySQL.getTemplateMySQl().query("""
                 select * from banco;
                 """, new BeanPropertyRowMapper<>(BancoModel.class));
@@ -57,6 +60,9 @@ public class Main {
         System.out.println(templateMySQL.getTemplateMySQl().query("""
                 select * from dispositivoUsb;
                 """, new BeanPropertyRowMapper<>(DispositivoUsbModel.class)));
+        System.out.println(templateMySQL.getTemplateMySQl().query("""
+                select * from janela;
+                """, new BeanPropertyRowMapper<>(DispositivoUsbModel.class)));
 
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -73,5 +79,7 @@ public class Main {
                 """, new BeanPropertyRowMapper<>(RegistroDispositivoUsbConectadoModel.class)));
             }
         }, delay, intervalo);
+
+
     }
 }

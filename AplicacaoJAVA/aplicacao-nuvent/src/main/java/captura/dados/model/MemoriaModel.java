@@ -43,7 +43,7 @@ public class MemoriaModel {
                 "idMemoria=" + idMemoria +
                 ", tamanhoTotal='" + tamanhoTotal + '\'' +
                 ", fkAtm=" + fkAtm +
-                ' |';
+                '-';
     }
 }
 

@@ -48,6 +48,12 @@ public class TemplateMySQL {
                     """, new BeanPropertyRowMapper<>(RegistroModel.class)).getIdRegistro();
     }
 
+    public Integer pegarJanelaMaisRecentePorId() {
+        return templateMySQl.queryForObject("""
+                    select * from janela order by id desc limit 1
+                    """, new BeanPropertyRowMapper<>(RegistroModel.class)).getIdRegistro();
+    }
+
     public JdbcTemplate getTemplateMySQl() {
         return templateMySQl;
     }

@@ -48,6 +48,6 @@ public class BancoModel {
                 ", nomeFantasia='" + nomeFantasia + '\'' +
                 ", razaoSocial='" + razaoSocial + '\'' +
                 ", cnpj='" + cnpj + '\'' +
-                ' |';
+                '-';
     }
 }

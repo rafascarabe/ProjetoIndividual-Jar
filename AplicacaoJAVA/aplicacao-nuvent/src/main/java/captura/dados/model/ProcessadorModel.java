@@ -78,6 +78,6 @@ public class ProcessadorModel {
                 ", qtdProcessadorFisico=" + qtdProcessadorFisico +
                 ", qtdProcessadorLogico=" + qtdProcessadorLogico +
                 ", fkAtm=" + fkAtm +
-                ' |';
+                '-';
     }
 }
