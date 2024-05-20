@@ -1,20 +1,20 @@
 package captura.dados.model;
 
-public class RegistroDispositivoUsbConectadoModel {
-    private Integer idRegistroDispositivoUsbConectado;
+public class RegistroUsbConectadoModel {
+    private Integer id;
     private Integer fkRegistro;
     private Integer fkDispositivoUsb;
     private Boolean conectado;
 
-    public RegistroDispositivoUsbConectadoModel() {
+    public RegistroUsbConectadoModel() {
     }
 
-    public Integer getIdRegistroDispositivoUsbConectado() {
-        return idRegistroDispositivoUsbConectado;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdRegistroDispositivoUsbConectado(Integer idRegistroDispositivoUsbConectado) {
-        this.idRegistroDispositivoUsbConectado = idRegistroDispositivoUsbConectado;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getFkRegistro() {
@@ -43,11 +43,11 @@ public class RegistroDispositivoUsbConectadoModel {
 
     @Override
     public String toString() {
-        return "\nRegistroDispositivoUsbConectadoModel:" +
-                "idRegistroDispositivoUsbConectado=" + idRegistroDispositivoUsbConectado +
+        return "RegistroUsbConectadoModel{" +
+                "id=" + id +
                 ", fkRegistro=" + fkRegistro +
                 ", fkDispositivoUsb=" + fkDispositivoUsb +
                 ", conectado=" + conectado +
-                '-';
+                '}';
     }
 }

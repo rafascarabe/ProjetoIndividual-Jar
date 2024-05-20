@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard | Base de Conchecimento</title>
+        <script src="https://kit.fontawesome.com/ce9ef0d266.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../css/dashboard.css">
+        <link rel="stylesheet" href="../css/dashBaseConhecimento.css">
+        <link rel="website icon" type="png" href="../assets/logo-nuvent-semFundo.png">
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="marca">
+                <img src="../assets/logo-nuvent-semFundo.png" alt="" />
+                <h2>Dashboard</h2>
+            </div>
+
+            <h2>Base de Conhecimento</h2>
+
+            <div class="conta">
+                <img src="../assets/icone_perfil_usuario.png" />
+                <div onclick="mostarOpcoesConta()" class="contaOpcoes">
+                    <p>TI</p>
+                    <hr />
+                    <button onclick="sairConta()">Sair</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <a href="dashboard.html">
+                <div class="aba">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </div>
+            </a>
+            <a href="dashDispositivos.html">
+                <div class="aba">
+                    <i class="fa-solid fa-laptop"></i>
+                    <span>ATMs</span>
+                </div>
+            </a>
+            <!--<a href="dashRegistros.html">
+                <div class="aba">
+                    <i class="fa-solid fa-rectangle-list"></i>
+                    <span>Lista de Registros</span>
+                </div>
+            </a>-->
+            
+            <a href="dashRelatorio.html">
+                <div class="aba">
+                    <i class="fa-solid fa-file-alt"></i>
+                    <span>Relatórios</span>
+                </div>
+            </a>
+            <a href="dashBaseConchecimento.html">
+                <div class="aba" id="aqui">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <span>Base de Conhecimento</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="margens">
+            
+           <form class="card_adicionar_solucao" id="form_postagem" method="post" onsubmit="return publicar()">
+                <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+                    <h1>Adicionar ocorrência</h1>
+                    <button style="width: 180px; height: 30px; margin-right: 7px; cursor: pointer;" onclick="cadastrarSolucao()">Publicar</button>
+                </div>
+
+
+                <div class="linha">
+                    <div class="card codigo_problema">
+                        <h3>Código do problema</h3>
+                        <input id="codigo_problema">
+                    </div>
+
+                    <div class="card nomenclatura_problema">
+                        <h3>Nomenclatura do problema</h3>
+                        <input id="nomenclatura_problema">
+                    </div>
+                </div>
+
+                <div class="linha">
+                    <div class="card proposta_solucao">
+                        <h3>Propósta de Solução</h3>
+                        <input id="proposta_solucao">
+                    </div>
+
+                    <div class="card habilidade_necessaria">
+                        <h3>Habilidades necessárias</h3>
+                        <input id="habilidade_necessaria">
+                    </div>
+                </div>
+
+                <div class="linha">
+                    <div class="card descricao_problema">
+                        <h3>Descrição do problema</h3>
+                        <input id="descricao_problema">
+                    </div>
+                </div>
+
+
+            </form>
+
+
+        </div>
+        
+
+
+
+    </body>
+
+</html>
+
+<script defer>
+    function cadastrarSolucao() {
+        let codigoProblemaVar = document.getElementById('codigo_problema').value;
+        let nomenclaturaProblemaVar = document.getElementById('nomenclatura_problema').value;
+        let propostaSolucaoVar = document.getElementById('proposta_solucao').value;
+        let habilidadeNecessariaVar = document.getElementById('habilidade_necessaria').value;
+        let descricaoProblemaVar = document.getElementById('descricao_problema').value;
+
+        let valido = checarValores(codigoProblemaVar, nomenclaturaProblemaVar, propostaSolucaoVar, habilidadeNecessariaVar, descricaoProblemaVar);
+
+        if (valido) {
+            fetch("/avisos/publicar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    codigoProblema: codigoProblemaVar,
+                    nomenclaturaProblema: nomenclaturaProblemaVar,
+                    propostaSolucao: propostaSolucaoVar,
+                    habilidadeNecessaria: habilidadeNecessariaVar,
+                    descricaoProblema: descricaoProblemaVar
+                    
+                })
+            }).then(function (resposta) {
+                if (!resposta.ok) {
+
+                }
+            });
+        }
+    }
+
+    function checarValores(codigoProblemaVar, nomenclaturaProblemaVar, propostaSolucaoVar, habilidadeNecessariaVar, descricaoProblemaVar) {
+        let campos = [codigoProblema, nomenclaturaProblema, propostaSolucao, habilidadeNecessaria, descricaoProblema];
+        for (let campo of campos) {
+            if (campo == "" || campo.length == 1 || campo.trim() == "") {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function limparFormulario() {
+        document.getElementById("form_postagem").reset();
+    }
+
+    function publicar() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        var corpo = {           
+            codigoProblema: form_postagem.codigo_problema.value,
+            nomenclaturaProblema: form_postagem.nomenclatura_problema.value,
+            propostaSolucao: form_postagem.proposta_solucao.value,
+            habilidadeNecessaria: form_postagem.habilidade_necessaria.value,
+            descricaoProblema: form_postagem.descricao_problema.value,
+        }
+
+        fetch(`/avisos/publicar/${idUsuario}`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Item adicionado a Base de Conhecimento pelo usuario de ID: " + idUsuario + "!");
+                window.location = "/dashboard/dashBaseConchecimento.html";
+                limparFormulario();
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+
+    }
+
+
+</script>

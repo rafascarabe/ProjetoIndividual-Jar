@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard | Base de Conchecimento</title>
+        <script src="https://kit.fontawesome.com/ce9ef0d266.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../css/dashboard.css">
+        <link rel="stylesheet" href="../css/dashBaseConhecimento.css">
+        <link rel="website icon" type="png" href="../assets/logo-nuvent-semFundo.png">
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="marca">
+                <img src="../assets/logo-nuvent-semFundo.png" alt="" />
+                <h2>Dashboard</h2>
+            </div>
+
+            <h2>Base de Conhecimento</h2>
+
+            <div class="conta">
+                <img src="../assets/icone_perfil_usuario.png" />
+                <div onclick="mostarOpcoesConta()" class="contaOpcoes">
+                    <p>TI</p>
+                    <hr />
+                    <button onclick="sairConta()">Sair</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <a href="dashboard.html">
+                <div class="aba">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </div>
+            </a>
+            <a href="dashDispositivos.html">
+                <div class="aba">
+                    <i class="fa-solid fa-laptop"></i>
+                    <span>ATMs</span>
+                </div>
+            </a>
+            <!--<a href="dashRegistros.html">
+                <div class="aba">
+                    <i class="fa-solid fa-rectangle-list"></i>
+                    <span>Lista de Registros</span>
+                </div>
+            </a>-->
+            
+            <a href="dashRelatorio.html">
+                <div class="aba">
+                    <i class="fa-solid fa-file-alt"></i>
+                    <span>Relatórios</span>
+                </div>
+            </a>
+            <div class="aba" id="aqui">
+                <i class="fa-solid fa-book-bookmark"></i>
+                <span>Base de Conhecimento</span>
+            </div>
+        </div>
+
+        <div class="margens">
+            <div class="filtarConhecimento">
+                <div>
+                    <span>Filtrar Itens:</span>
+                    <input type="text">
+                </div>
+                
+                <div class="controles">
+                    <button id="adicionarItem"><a href="../dashboard/dashAdicionarBaseConhecimento.html">Adicionar Item</a></button>
+                    <button id="removerItem">Remover Item</button>
+                </div>
+            </div>
+            <div class="listaConhecimentos" id="listaConhecimentos">
+                <div class="conhecimentoItem" onclick="mostrarDetalhes(this)"
+                    data-detalhes="
+                    Consequências: 
+                    <br>- Instabilidades no sistema do ATM.
+                    <br>- Possíveis interrupções no funcionamento do caixa eletrônico.
+                    <br>- Riscos de perda de dados ou corrupção de arquivos temporários.
+                    <br>O problema reside no componente físico da memória RAM, localizado na placa-mãe do terminal de autoatendimento.">
+                    <p class="titulo">Código do problema:</p>
+                    <p>023364</p>
+                    <p class="titulo">Nomenclatura do problema:</p>
+                    <p>Falha na memória RAM do terminal de autoatendimento</p>
+                    <p class="titulo">Descrição problema:</p>
+                    <p>O problema reside no componente físico da memória RAM, localizado na placa-mãe do terminal de autoatendimento. Tem causado instabilidades no sistema do ATM e interrupções no seu funcionamento.</p>
+                    
+                </div>
+
+                <div class="conhecimentoItem" onclick="mostrarDetalhes(this)"
+                    data-detalhes="
+                    Consequências:
+                        <br>Instabilidades no sistema do ATM devido à incapacidade de ler corretamente os cartões dos clientes, resultando em falhas nas transações.
+                        <br>Possíveis interrupções no funcionamento do caixa eletrônico, pois os clientes podem ser incapazes de acessar seus fundos ou realizar operações bancárias.
+                        <br>Riscos de perda de dados ou corrupção de arquivos temporários, especialmente se as transações forem interrompidas no meio do processo devido à falha na leitura do cartão.
+                        <br>Aumento do tempo de espera e frustração dos clientes devido à necessidade de várias tentativas para inserir e ler os cartões.">
+                    <p class="titulo">Código do problema:</p>
+                    <p>023768</p>
+                    <p class="titulo">Nomenclatura do problema:</p>
+                    <p>Falha na leitora de cartões no terminal de autoatendimento</p>
+                    <p class="titulo">Descrição problema:</p>
+                    <p> A leitora de cartões do terminal de autoatendimento está com mau funcionamento, resultando em dificuldades para ler corretamente os cartões dos clientes. Isso tem levado a transações mal sucedidas, onde os clientes são incapazes de acessar seus fundos ou realizar operações bancárias, causando frustração e interrupções no serviço.</p>
+                    
+                </div>
+
+                <div class="conhecimentoItem" onclick="mostrarDetalhes(this)"
+                    data-detalhes="
+                    Consequências:
+                        <br>Instabilidades no sistema do ATM, levando a possíveis falhas e reinicializações inesperadas.
+                        <br>Possíveis interrupções no funcionamento do caixa eletrônico, causando inconvenientes para os clientes.
+                        <br>Riscos de perda de dados ou corrupção de arquivos temporários devido a falhas na gravação ou leitura de dados na memória.">
+                    <p class="titulo">Código do problema:</p>
+                    <p>023799</p>
+                    <p class="titulo">Nomenclatura do problema:</p>
+                    <p>Falha na alocação de memória no terminal de autoatendimento</p>
+                    <p class="titulo">Descrição problema:</p>
+                    <p> O terminal de autoatendimento está enfrentando problemas na alocação de memória, resultando em erros de falta de memória durante operações intensivas. Isso tem levado a falhas no sistema, onde o ATM se torna inutilizável temporariamente e requer reinicialização manual.</p>
+                    
+                </div>
+
+                <div class="conhecimentoItem" onclick="mostrarDetalhes(this)"
+                    data-detalhes="
+                    Consequências:
+                        <br>Instabilidades no sistema do ATM devido à sobrecarga da CPU, resultando em tempo de resposta prolongado para as operações dos clientes.
+                        <br>Possíveis interrupções no funcionamento do caixa eletrônico, especialmente durante picos de atividade, quando a CPU está sobrecarregada.
+                        <br>Riscos de perda de dados ou corrupção de arquivos temporários devido a falhas na execução de processos críticos, resultando em transações mal sucedidas ou incompletas.">
+                    <p class="titulo">Código do problema:</p>
+                    <p>023835</p>
+                    <p class="titulo">Nomenclatura do problema:</p>
+                    <p>Sobrecarga da CPU no terminal de autoatendimento</p>
+                    <p class="titulo">Descrição problema:</p>
+                    <p> A CPU do terminal de autoatendimento está operando em capacidade máxima devido a um grande volume de transações ou processos em segundo plano. Isso tem causado lentidão no desempenho do ATM, resultando em tempo de resposta prolongado para as operações dos clientes e possíveis travamentos do sistema durante picos de atividade.</p>
+                    
+                </div>
+                <!-- Repita para os outros itens de conhecimento -->
+            </div>
+            <div class="cardDetalhes" onclick="fecharDetalhes()">
+                <h2>Detalhes do Item</h2>
+                <!-- Os detalhes do item serão preenchidos aqui -->
+            </div>
+
+
+            <div class="paginacao">
+                <a href="" id="voltar-seta"><b><</b></a>
+                <a href="" onclick="pagina1()" id="pagina1" style="border: 1px solid black; padding: 5px;"><b>1</b></a>
+                <a href="" onclick="pagina2()" id="pagina2"><b>2</b></a>
+                <a href=""id=pagina3><b>3</b></a>
+                <a href="" id="prosseguir-seta"><b>></b></a>
+
+            </div>
+        </div>
+
+
+    </body>
+
+</html>
+
+<script defer>
+    function mostrarDetalhes(item) {
+        var cardDetalhes = document.querySelector('.cardDetalhes');
+        var detalhes = item.getAttribute('data-detalhes');
+        cardDetalhes.innerHTML = '<h2>Detalhes do Item</h2><p class="titulo">Descrição Detalhada:</p><p>' + detalhes + '</p>';
+        cardDetalhes.style.display = 'block';
+    }
+
+    function fecharDetalhes() {
+        var cardDetalhes = document.querySelector('.cardDetalhes');
+        cardDetalhes.style.display = 'none';
+    }
+
+     // fazer a função da paginação
+
+    
+    function atualizarFeed() {
+        fetch("/avisos/listar").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("feed_container");
+                    feed.innerHTML = "";
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var divPublicacao = document.createElement("div");
+                        var spanID = document.createElement("span");
+                        var spanTitulo = document.createElement("span");
+                        var spanNome = document.createElement("span");
+                        var divDescricao = document.createElement("div");
+                        var divButtons = document.createElement("div");
+                        var btnEditar = document.createElement("button");
+                        var btnDeletar = document.createElement("button");
+
+
+                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
+                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+                        spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
+                        divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
+                        btnEditar.innerHTML = "Editar";
+                        btnDeletar.innerHTML = "Deletar";
+
+                        divPublicacao.className = "publicacao";
+                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                        spanNome.className = "publicacao-nome";
+                        spanTitulo.className = "publicacao-titulo";
+                        divDescricao.className = "publicacao-descricao";
+
+                        divButtons.className = "div-buttons"
+
+                        btnEditar.className = "publicacao-btn-editar"
+                        btnEditar.id = "btnEditar" + publicacao.idAviso;
+                        btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+
+                        btnDeletar.className = "publicacao-btn-editar"
+                        btnDeletar.id = "btnDeletar" + publicacao.idAviso;
+                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+
+                        divPublicacao.appendChild(spanID);
+                        divPublicacao.appendChild(spanNome);
+                        divPublicacao.appendChild(spanTitulo);
+                        divPublicacao.appendChild(divDescricao);
+                        divPublicacao.appendChild(divButtons);
+                        divButtons.appendChild(btnEditar);
+                        divButtons.appendChild(btnDeletar);
+                        feed.appendChild(divPublicacao);
+                    }
+
+                    
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            
+        });
+    }
+
+
+
+</script>

@@ -1,0 +1,62 @@
+/* MARK: select atms*/
+
+.visaoGeral {
+    margin-left: 210px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.visaoGeral .list_ATMs select{
+    margin: 10px 0 20px;
+    padding: 2px 30px;
+    text-align: center;
+    width: 200px;
+    cursor: pointer;
+}
+
+/* MARK: graficos*/
+
+.graficos{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.AtmStatus{
+    padding: 5px 15px;
+    box-sizing: border-box;
+    flex: 1 0 50%;
+    margin: 5px;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.listaDispositivos{
+    width: 550px;
+    height: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.circulo{
+    display: flex;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: green;
+    margin-right: 10px;
+}
+
+.legenda{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+p{
+    display: flex;
+}

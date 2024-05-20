@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard | Visão Geral</title>
+        <script src="https://kit.fontawesome.com/ce9ef0d266.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <link rel="stylesheet" href="../css/dashboard.css">
+        <link rel="stylesheet" href="../css/gerOverview.css">
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="marca">
+                <img src="../assets/logo-nuvent-semFundo.png" alt="" />
+                <h2>Dashboard</h2>
+            </div>
+
+            <h2>Agências</h2>
+
+            <div class="conta">
+                <img src="../assets/icone_perfil_usuario.png" />
+                <div onclick="mostarOpcoesConta()" class="contaOpcoes">
+                    <p>Gerente</p>
+                    <hr>
+                    <button onclick="sairConta()">Sair</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="aba" id="aqui">
+                <i class="fa-solid fa-landmark"></i>
+                <span>Agências</span>
+            </div>
+            <a href="gerAtm.html">
+                <div class="aba">
+                    <i class="fa-solid fa-laptop"></i>
+                    <span>ATMs</span>
+                </div>
+            </a>
+            <a href="#">
+                <div class="aba">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Funcionários</span>
+                </div>
+            </a>
+        </div>
+        <div class="margens">
+            <div class="esquerda">
+                <div class="kpiGrupo">
+                    <div class="kpiAtm">
+                        <p>
+                            Quantidade de ATMs com problemas (todas as agências)
+                        </p>
+                        <div class="kpiDado">
+                            <p>7/17</p>
+                        </div>
+                    </div>
+                    <div class="kpiAtm">
+                        <p>
+                            Quantidade de ATMs com problemas (última semana)
+                        </p>
+                        <div class="kpiDado">
+                            <p>4/12</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="graficos">
+                    <p>Quantidade de ATMs com problemas</p>
+                    <div id="graficoBarra"></div>
+                </div>
+
+                <div class="falhas">
+                    <div class="falhasMes">
+                        <h2>11</h2>
+                        <p>Número total de falhas registradas no mês anterior</p>
+                    </div>
+                    <div class="falhasMes">
+                        <h2>4</h2>
+                        <p>Número total de falhas registradas no mês atual</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="direita">
+                <div class="listaAgencias">
+                    <h2>Lista de Agências</h2>
+                    <div class="filtros">
+                        <p>Filtrar por:</p>
+                        <select id="cidade">
+                            <option value="cidade">cidade</option>
+                        </select>
+                        <select id="id">
+                            <option value="id">id</option>
+                        </select>
+                    </div>
+                    <div class="agenciasListadas">
+                        <a href="gerAtm.html">
+                            <div class="itemAgencia" id="alerta">
+                                Agência 1
+                            </div>
+                        </a>
+                        <a href="gerAtm.html">
+                            <div class="itemAgencia" id="perigo">
+                                Agência 2
+                            </div>
+                        </a>
+                        <a href="gerAtm.html">
+                            <div class="itemAgencia" id="normal">
+                                Agência 3
+                            </div>
+                        </a>
+                        <a href="gerAtm.html">
+                            <div class="itemAgencia" id="perigo">
+                                Agência 4
+                            </div>
+                        </a>
+                        <a href="gerAtm.html">
+                            <div class="itemAgencia" id="alerta">
+                                Agência 5
+                            </div>
+                        </a>
+                        <a href="gerAtm.html">
+                            <div class="itemAgencia" id="perigo">
+                                Agência 6
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+</html>
+
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(desenharGrafico);
+
+    function desenharGrafico() {
+        let dados = new google.visualization.DataTable();
+        dados.addColumn('string', 'Agência')
+        dados.addColumn('number', 'Problemas')
+        dados.addRows([
+            ['Agência 1', 5],
+            ['Agência 2', 8],
+            ['Agência 3', 2],
+            ['Agência 4', 7],
+            ['Agência 5', 6],
+            ['Agência 6', 10]
+        ]);
+
+        let opcoes = {
+            legend: { position: 'none' }
+        }
+
+        let grafico = new google.visualization.ColumnChart(document.getElementById('graficoBarra'));
+        grafico.draw(dados, opcoes);
+    }
+</script>

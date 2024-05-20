@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard | Dispositivos</title>
+		<script src="https://kit.fontawesome.com/ce9ef0d266.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="../css/dashboard.css">
+		<link rel="stylesheet" href="../css/dispositivos.css">
+		<link rel="website icon" type="png" href="../assets/logo-nuvent-semFundo.png">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	</head>
+
+
+	<body>
+		<div class="header">
+			<div class="marca">
+				<img src="../assets/logo-nuvent-semFundo.png" alt="" />
+				<h2>Dashboard</h2>
+			</div>
+
+			<h2>ATMs</h2>
+
+			<div class="conta">
+				<img src="../assets/icone_perfil_usuario.png" />
+				<div onclick="mostarOpcoesConta()" class="contaOpcoes">
+					<p>TI</p>
+					<hr />
+					<button onclick="sairConta()">Sair</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="sidebar">
+			<a href="dashboard.html">
+				<div class="aba">
+					<i class="fa-solid fa-house"></i>
+					<span>Home</span>
+				</div>
+			</a>
+			<div class="aba" id="aqui">
+				<i class="fa-solid fa-laptop"></i>
+				<span>ATMs</span>
+			</div>
+			<!--<a href="dashRegistros.html">
+				<div class="aba">
+					<i class="fa-solid fa-rectangle-list"></i>
+					<span>Lista de Registros</span>
+				</div>
+			</a>-->
+			<a href="dashRelatorio.html">
+				<div class="aba">
+					<i class="fa-solid fa-file-alt"></i>
+					<span>Relatórios</span>
+				</div>
+			</a>
+			<a href="dashBaseConchecimento.html">
+				<div class="aba">
+					<i class="fa-solid fa-book-bookmark"></i>
+					<span>Base de Conhecimento</span>
+				</div>
+			</a>
+		</div>
+
+		<div class="visaoGeral">
+
+			<div class="list_ATMs">
+				<select class="list_options_ATMs" id="atm_selecionado">
+					<option value="atm001">ATM001</option>
+					<option value="atm002">ATM002</option>
+					<option value="atm003">ATM003</option>
+					<option value="atm004">ATM004</option>
+					<option value="atm005"selected>ATM005</option>
+					<option value="atm005">ATM006</option>
+					<option value="atm005">ATM007</option>
+					<option value="atm005">ATM008</option>
+				</select>
+			</div>
+
+
+			<div class="graficos">
+
+				<div class="cardGraficoAtm">
+					<div class="AtmAlerta" style="background-color: #b80000;">
+							<h3>Área de alerta da CPU <br/>
+								ATM-005
+							</h3>
+					</div>
+
+					<div class="grafico">
+						<div id="ocorrencia_chart" style="width: 550px; height: 300px"></div>
+					</div>
+
+					<div class="AtmStatus">
+						<div>
+							<p><b>Processos:</b> <span>X</span></p>
+							<p><b>Frequência:</b> <span>X</span></p>
+						</div>
+						<div>
+							<p><b>CPUs físicas:</b> <span>X</span></p>
+							<p><b>CPUs lógicas:</b> <span>X</span></p>
+						</div>
+						
+					</div>
+				</div>
+
+
+				<div class="cardGraficoAtm">
+					<div class="AtmAlerta" style="background-color: #FFBA33;">
+							<h3>Área de alerta da Memória <br/>
+								ATM-005
+							</h3>
+					</div>
+
+					<div class="grafico">
+						<div id="ocorrencia_chart2" style="width: 550px; height: 300px"></div>
+					</div>
+
+					<div class="AtmStatus">
+						<div>
+							<p><b>Em uso:</b> <span>X</span>GB</p>
+							<p><b>Disponível:</b> <span>X</span>GB</p>
+						</div>
+						<div>
+							<p><b>Total:</b> <span>X</span>GB</p>
+							<p><b>Frequência:</b> <span>X</span></p>
+						</div>
+						
+					</div>
+				</div>
+
+				<div class="cardGraficoAtm">
+					<div class="AtmAlerta" style="background-color: #00BB29;">
+							<h3>Área de alerta do Disco<br/>
+								ATM-005
+							</h3>
+					</div>
+
+					<div class="grafico">
+						<div id="ocorrencia_chart3" style="width: 550px; height: 300px"></div>
+					</div>
+
+					<div class="AtmStatus">
+						<div>
+							<p><b>Em uso:</b> <span>X</span>GB</p>
+							<p><b>Disponível:</b> <span>X</span>GB</p>
+						</div>
+						<div>
+							<p><b>Total:</b> <span>X</span>GB</p>
+						</div>
+						
+					</div>
+				</div>
+
+				<div class="cardGraficoAtm">
+					<div class="AtmAlerta" style="background-color: #00BB29;">
+							<h3>Área de alerta de USB <br/>
+								ATM-005
+							</h3>
+					</div>
+
+					<div class="grafico" style="width:550px; height:321px; display:flex; align-items: center;">
+
+						<div class="listaDispositivos" style="width:550px; height:321px; display:flex; justify-content: center; flex-direction: column;">
+							<h3>Lista de Dispositivos USB</h3>
+
+							<p><span class="circulo"></span>Dispositivo X </p>
+							<p><span class="circulo"></span>Dispositivo Y </p>
+							<p><span class="circulo" style="background-color: #b80000"></span>Dispositivo Z </span></p>
+
+							<div class="legenda">
+								<p>Legenda:</p>
+
+								<p>
+									<span class="circulo"></span>
+									<span>Conectado</span>
+								</p>
+								<p>
+									<span class="circulo" style="background-color: #b80000;"></span>
+									<span>Desconectado</span>
+								</p>
+
+							</div>
+
+						</div>
+
+						
+					</div>
+
+					<div class="AtmStatus">
+						<div>
+							<p><b>Total de Usb:</b> <span>X</span></p>
+						</div>
+						<div>
+							<p><b>Total em uso:</b> <span>X</span></p>
+						</div>
+						
+					</div>
+				</div>
+
+			</div>
+	</body>
+
+</html>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+	var data = google.visualization.arrayToDataTable([
+	  ['Horas', 'ocorrencias'],
+	  ['15',  23],
+	  ['30',  47],
+	  ['45',  65],
+	  ['60',  20],
+	  ['75',  49],
+	  ['90',  46]
+	]);
+
+	var options = {
+	  title: 'Uso da CPU',
+	  legend: { position: 'bottom' }
+	};
+
+	var chart = new google.visualization.LineChart(document.getElementById('ocorrencia_chart'));
+
+	chart.draw(data, options);
+  }
+</script>
+
+<script type="text/javascript">
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+	  var data = google.visualization.arrayToDataTable([
+		['Horas', 'ocorrencias'],
+		['15',  10],
+		['30',  30],
+		['45',  10],
+		['60',  20],
+		['75',  40],
+		['90',  60]
+	  ]);
+
+	  var options = {
+		title: 'Uso da Memória (em %)',
+		legend: { position: 'bottom' }
+	  };
+
+	  var chart = new google.visualization.LineChart(document.getElementById('ocorrencia_chart2'));
+
+	  chart.draw(data, options);
+	}
+  </script>
+
+<script type="text/javascript">
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	function drawChart() {
+	  var data = google.visualization.arrayToDataTable([
+		['Horas', 'ocorrencias'],
+		['15',  12],
+		['30',  20],
+		['45',  70],
+		['60',  62],
+		['75',  44],
+		['90',  23]
+	  ]);
+
+	  var options = {
+		title: 'Uso do Disco (em %)',
+		legend: { position: 'bottom' }
+	  };
+
+	  var chart = new google.visualization.LineChart(document.getElementById('ocorrencia_chart3'));
+
+	  chart.draw(data, options);
+	}
+  </script>

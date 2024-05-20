@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: red;
+    /* overflow-x: hidden; */
+}
+
+.header_dashboard{
+    margin: 0;
+    padding: 0px 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    background-color: hsla(0, 0%, 85%, 1);
+}
+
+.header_dashboard .user_login{
+    margin: 0;
+    padding: 0px 20px 0px;
+    display: flex;
+    justify-content: center;
+    /* align-items: flex-start; */
+    height: 70px;
+}
+
+.header_dashboard img{
+    margin: 0;
+    padding: 2px;
+}

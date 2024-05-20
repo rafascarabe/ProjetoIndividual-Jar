@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard | Relatório</title>
+		<script src="https://kit.fontawesome.com/ce9ef0d266.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="../css/dashboard.css" />
+		<link rel="stylesheet" href="../css/dashRelatorio.css" />
+		<link rel="website icon" type="png" href="../assets/logo-nuvent-semFundo.png" />
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="marca">
+				<img src="../assets/logo-nuvent-semFundo.png" alt="" />
+				<h2>Dashboard</h2>
+			</div>
+
+			<h2>Relatórios</h2>
+
+			<div class="conta">
+				<img src="../assets/icone_perfil_usuario.png" />
+				<div onclick="mostarOpcoesConta()" class="contaOpcoes">
+					<p>TI</p>
+					<hr />
+					<button onclick="sairConta()">Sair</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="sidebar">
+			<a href="dashboard.html">
+				<div class="aba">
+					<i class="fa-solid fa-house"></i>
+					<span>Home</span>
+				</div>
+			</a>
+			<a href="dashDispositivos.html">
+				<div class="aba">
+					<i class="fa-solid fa-laptop"></i>
+					<span>ATMs</span>
+				</div>
+			</a>
+			<!--<a href="dashRegistros.html">
+				<div class="aba">
+					<i class="fa-solid fa-rectangle-list"></i>
+					<span>Lista de Registros</span>
+				</div>
+			</a>-->
+			<div class="aba" id="aqui">
+				<i class="fa-solid fa-file-alt"></i>
+				<span>Relatórios</span>
+			</div>
+			<a href="dashBaseConchecimento.html">
+				<div class="aba">
+					<i class="fa-solid fa-book-bookmark"></i>
+					<span>Base de Conhecimento</span>
+				</div>
+			</a>
+		</div>
+
+		<div class="container">
+
+			<div class="conteudo spaceRelatorio">
+				<span class="titulo">Relatório de Alerta Mais Recente</span>
+
+				<div class="relatorio">
+					<h3>Relatório de Solução</h3>
+
+					<div class="identificacao_ocorrencia">
+						<p><b>ID do ATM:</b> <span>ATM001</span></p>
+						<p><b>Data do Registro:</b> <span>DD/MM/AAAA</span></p>
+						<p><b>N° da Ocorrência:</b> <span>X</span></p>
+					</div>
+
+					
+					<div class="descricao_ocorrencia">
+
+						<span><b>NOMENCLATURA:</b> Falha na memória RAM do terminal de autoatendimento</span>
+
+						<span><b>DESCRIÇÃO:</b> O problema reside no componente físico da memória RAM, localizado na placa-mãe do terminal de autoatendimento.
+							Tem causado instabilidades no sistema do ATM e interrupções no seu funcionamento.
+						</span>
+
+						<span><b>SOLUÇÃO:</b> <br>- Verificar se não há problemas com a alimentação elétrica da memória RAM, como cabos soltos ou conexões danificadas.<br>
+							- Verificar se há atualizações de firmware ou BIOS disponíveis para o terminal de autoatendimento que possam resolver problemas de compatibilidade ou estabilidade relacionados à memória RAM.<br>
+							- Verificar se a falha foi causada por problemas de superaquecimento ou instabilidade do sistema.
+						</span>
+
+
+						<span><b>HABILIDADES NECESSÁRIAS:</b> <br>- Conhecimento em hardware de computadores.<br>
+							- Habilidade em desmontagem e montagem de componentes eletrônicos.<br>
+							- Capacidade de diagnóstico de problemas de hardware.<br>
+							- Conhecimento básico em segurança elétrica para manusear os componentes internos do caixa eletrônico com segurança.
+						</span>
+					</div>
+
+
+				</div>
+
+			</div>
+
+			<div class="conteudo">
+				<span class="titulo">Lista de Relatórios</span>
+
+				<div class="lista_relatorio">
+
+					<div class="filtro">
+						<span>Filtar por</span>
+
+						<select name="componente" id="componente">
+							<option value="" selected>componente</option>
+							<option value="processador">Processador</option>
+							<option value="cpu">CPU</option>
+							<option value="disco">Disco</option>
+							<option value="memoria">Memória</option>
+							<option value="conexaoUsb">Conexão USB</option>
+						</select>
+
+						<input type="date" id="BuscarRelatorioPorData" />
+					</div>
+
+					<div class="data_relatorio">
+						<p>Relatório de <span>DD/MM/AA</span> sobre Processador</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Disco</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Memória</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Memória</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Dispositivo USB</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Disco</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Processador</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Memória</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Processador</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Dispositivo USB</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Disco</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Processador</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Memória</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Processador</p>
+						<p>Relatório de <span>DD/MM/AA</span> sobre Dispositivo USB</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</body>
+
+</html>
+
+<script>
+	function filtro() {
+
+	}
+</script>

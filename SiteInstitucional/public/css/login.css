@@ -1,0 +1,244 @@
+/* ------------------------------------- LOGIN -------------------------------- */ 
+body{
+    margin: 0px;
+    /*padding: 0px; */
+    /*width: 100%;*/
+    height: 859px;
+    
+    background-image: url(../assets/background-nuvent.png);
+    background-size: cover;
+    color: #fff;
+
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.bloco-login{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+
+
+    width: 550px;
+    height: 859px;
+
+    padding-left: 60px;
+
+    background: rgb(9,9,121);
+    background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(39,179,220,1) 100%);
+    color: white;
+
+}
+
+/* ------------------------------------*/
+.nuvent{
+    display: flex; 
+    align-items: center;
+    /*background-color: coral;*/
+    
+    width: 80%;
+    height: 88px;
+}
+
+.bloco-login .nuvent img, .bloco-cadastro .nuvent img{
+    width: 70px;
+    height: 70px;
+}
+/* ------------------------------------*/
+.bem-vindo{
+    display: flex; 
+    align-items: center;
+    
+    /*background-color: green;*/
+    
+    width: 80%;
+    height: 45px;
+    padding-left: 3px;
+}
+
+.bloco-login .bem-vindo img, .bloco-cadastro .bem-vindo img{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+/* ------------------------------------*/
+.frase{
+    margin-bottom: 25px;
+    margin-top: 10px;
+    font-size: 16px;
+    padding-left: 5px;
+}
+/* ------------------------------------*/
+input{
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none; /* Remove a borda de foco quando o input está selecionado */
+    color: #fff;
+    background: rgba(9, 9, 121, 0);
+    
+    width: 375px;
+    height: 25px;
+    padding-left: 20px; 
+    margin-bottom: 10px;
+    
+}
+
+  
+/* ------------------------------------*/
+.links{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+button{
+    width: 100%;
+    border-radius: 40px;
+    padding: 10px;
+    border: none;
+    margin: 10px;
+
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.button-entrar{
+    background-color: #6E82DF;
+}
+.button-entrar:hover{
+    background-color: #000;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.button-entrar-gmail{
+    background-color: white;
+}
+.button-entrar-gmail:hover{
+    background-color: #000000;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+a{
+    font-weight: bold;
+    color: white;
+}
+a:hover{
+    color:#213f72;
+    transition: all 0.2s ease-in-out;
+}
+
+
+/* ------------------------------------- CADASTRO -------------------------------- */
+
+.bloco-cadastro{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+
+
+    width: 550px;
+    height: 100%;
+
+    padding-left: 60px;
+
+    background: rgb(9,9,121);
+    background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(39,179,220,1) 100%);
+    color: white;
+
+}
+
+@media screen and (max-width: 600px){
+    
+    .body{
+        width: 320px;
+        min-width: 100%;
+        height: 600px;
+        background-image: none;
+    }
+
+    .bloco-login {
+        padding: 20px;
+        height: 600px;
+        width: 320px;
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .nuvent{
+        width: 100%;
+        height: auto;
+    }
+    .nuvent h2{
+        font-size: 20px;
+    }
+    
+    .bloco-login .nuvent img, .bloco-cadastro .nuvent img{
+        width: 50px;
+        height: 50px;
+    }
+    /* ------------------------------------*/
+    .bem-vindo{
+        width: 100%;
+        height: 40px;
+        padding-left: 3px;
+    }
+    .bem-vindo h1{
+        font-size: 18px;
+    }
+    
+    .bloco-login .bem-vindo img, .bloco-cadastro .bem-vindo img{
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    /* ------------------------------------*/
+    .frase{
+        margin-bottom: 20px;
+        margin-top: 10px;
+        font-size: 13px;
+        padding: 0;
+    }
+    /* ------------------------------------*/
+    input{
+        width: 90%;
+        height: 25px;
+        padding-left: 20px; 
+        margin-bottom: 10px;
+    }
+    .input-email p, .input-senha p{
+        margin: 0;
+        font-size: 13px;
+    }
+
+    .input-email, .input-senha{
+        width: 100%;
+    }
+      
+    /* ------------------------------------*/
+    .links{
+        width: 100%;
+    }
+    button{
+        width: 100%;
+        padding: 5px;
+        border: none;
+        margin: 5px 10px;
+        font-size: 13px;
+    }
+
+    .links span{
+        font-size: 12px;
+        
+    }
+    
+}
+

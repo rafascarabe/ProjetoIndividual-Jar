@@ -11,75 +11,43 @@ import java.util.TimerTask;
 
 public class Main {
     public static void main(String[] args) {
+
         TemplateMySQL templateMySQL = new TemplateMySQL();
 
-        Integer delay = 2000;
-        Integer intervalo = 15000;
+        Integer delay = 1000;
+        Integer intervalo = 10000;
         Timer timer = new Timer();
 
-        AtmService atmService = new AtmService();
+        InfraestruturaAtmService infraestruturaAtmService = new InfraestruturaAtmService();
         ProcessadorService processadorService = new ProcessadorService();
         MemoriaService memoriaService = new MemoriaService();
         DiscoService discoService= new DiscoService();
         DispositivoUsbService dispositivoUsbService = new DispositivoUsbService();
         RegistroService registroService = new RegistroService();
-        RegistroDispositivoUsbConectadoService registroDispositivoUsbConectadoService = new RegistroDispositivoUsbConectadoService();
+        RegistroUsbConectadoService registroUsbConectadoService = new RegistroUsbConectadoService();
+        JanelaService janelaService = new JanelaService();  // Adiciona JanelaService
 
-        atmService.inserirDadosAtm();
+        infraestruturaAtmService.inserirDadosInfraAtm();
         processadorService.inserirDadosProcessador();
         memoriaService.inserirDadosMemoria();
         discoService.inserirPegarModeloVolumeDiscoLooca();
         dispositivoUsbService.inserirPegarNomeDispositivo();
+        janelaService.capturarJanelas();  // Insere dados das janelas abertas
 
-
-
-
-        List<BancoModel> listaTeste = templateMySQL.getTemplateMySQl().query("""
-                select * from banco;
-                """, new BeanPropertyRowMapper<>(BancoModel.class));
-
-        System.out.println(listaTeste);
-
-
-        System.out.println(templateMySQL.getTemplateMySQl().query("""
-                select * from atm;
-                """, new BeanPropertyRowMapper<>(AtmModel.class)));
-
-        System.out.println(templateMySQL.getTemplateMySQl().query("""
-                select * from processador;
-                """, new BeanPropertyRowMapper<>(ProcessadorModel.class)));
-
-        System.out.println(templateMySQL.getTemplateMySQl().query("""
-                select * from memoria;
-                """, new BeanPropertyRowMapper<>(MemoriaModel.class)));
-
-        System.out.println(templateMySQL.getTemplateMySQl().query("""
-                select * from disco;
-                """, new BeanPropertyRowMapper<>(DiscoModel.class)));
-
-        System.out.println(templateMySQL.getTemplateMySQl().query("""
-                select * from dispositivoUsb;
-                """, new BeanPropertyRowMapper<>(DispositivoUsbModel.class)));
-        System.out.println(templateMySQL.getTemplateMySQl().query("""
-                select * from janela;
-                """, new BeanPropertyRowMapper<>(DispositivoUsbModel.class)));
+        System.out.println("Inseriu os dados estáticos de hardware");
 
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 registroService.inserirDadosRegistro();
-                registroDispositivoUsbConectadoService.inserirDadosRegistroUsb();
+                registroUsbConectadoService.inserirDadosRegistroUsb();
 
+                System.out.println("Está inserindo os registros");
+                System.out.println("------------");
                 System.out.println(templateMySQL.getTemplateMySQl().query("""
-                select * from registro;
-                """, new BeanPropertyRowMapper<>(RegistroModel.class)));
-
-                System.out.println(templateMySQL.getTemplateMySQl().query("""
-                select * from registroDispositivoUsbConectado limit 1;
-                """, new BeanPropertyRowMapper<>(RegistroDispositivoUsbConectadoModel.class)));
+                select * from janelas;
+                """, new BeanPropertyRowMapper<>(JanelaModel.class)));
             }
         }, delay, intervalo);
-
-
     }
 }

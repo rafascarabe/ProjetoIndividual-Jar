@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shorcut-icon" href="assets/logo-nuvent-semFundo.png" type="image/x-icon">
+
+        <link rel="stylesheet" href="css/cadastroUsuario.css">
+        <link rel="stylesheet" href="css/cadastroGerente.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+        <link rel="website icon" type="png" href="assets/logo-nuvent-semFundo.png">
+        <title>Cadastro</title>
+    </head>
+
+    <body>
+
+        <div class="header">
+            <img src="assets/logo-nuvent-semFundo.png" alt="logo" />
+            <span>Nuvent</span>
+
+            <div class="LoginCadastro">
+                <button id="login"><a href="login.html">Login</a></button>
+                <button id="cadastro"><a href="cadastro.html">Cadastro</a></button>
+            </div>
+        </div>
+
+        <div class="bloco-cadastro">
+
+            <div class="voltar_pagina_anterior">
+                <a href="cadastroEmpresa.html"><img src="assets/seta_esquerda_azul.png" alt="seta-esquerda"
+                        id="icone_voltar_pagina_anterior"></a>
+            </div>
+
+            <h1>Cadastre sua Conta</h1>
+
+            <div class="cadastro-campos">
+                <div class="campo">
+                    <p>Nome completo</p>
+                    <div>
+                        <img src="assets/usuario-icone.png">
+                        <input type="text" name="nome_usuario" id="nome_usuario">
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <p>Data de nascimento</p>
+                    <div>
+                        <img src="assets/data_nascimento_icone.png">
+                        <input type="date" name="nascimento_usuario" id="nascimento_usuario">
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <p>Email</p>
+                    <div>
+                        <img src="assets/email_icone.png">
+                        <input type="email" name="email_usuario" id="email_usuario">
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <p>Senha</p>
+                    <div>
+                        <img src="assets/senha_icone.png">
+                        <input type="password" name="senha_usuario" id="senha_usuario">
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <p>Telefone</p>
+                    <div>
+                        <img src="assets/telefone_icone.png">
+                        <input type="tel" name="telefone_usuario" id="telefone_usuario">
+                    </div>
+                </div>
+
+                <span id="mensagem_erro" style="color: red;"></span>
+
+                <div class="botoes">
+                    <button id="cancelar" type="button" onclick="cancelar()">
+                        Cancelar
+                    </button>
+
+                    <button id="cadastrar" type="button" onclick="cadastrar()">
+                        Cadastrar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mensagem" id="mensagem">
+            <img class="verify" src="assets/sucesso.png" alt="sucesso">
+            <p>Cadastro realizado com sucesso!</p>
+
+            <button id="cadastrar_outro" onclick="cadastrarOutro()">Cadastrar um Funcionário</button>
+            <button id="acessar_dashboard" onclick="acessarDashboard()">Acessar Dashboards</button>
+            <button id="sair" onclick="sair()">Sair</button>
+
+        </div>
+    </body>
+
+</html>
+
+<script>
+
+    function cadastrar() {
+        var nome = nome_usuario.value;
+        var nascimento = nascimento_usuario.value;
+        var email = email_usuario.value;
+        var senha = senha_usuario.value;
+        let telefone = telefone_usuario.value;
+        var cargo = 'gerente';
+
+        var valido = checarValores(nome, nascimento, email, senha, telefone, cargo);
+
+        if (valido) {
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    nascimento: nascimento,
+                    email: email,
+                    senha: senha,
+                    telefone: telefone,
+                    cargo: cargo
+                })
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    window.location.href = "login.html"
+                }
+            })
+        } else {
+            console.log("caiu no else :3")
+        }
+    }
+
+    function checarValores(nome, nascimento, email, senha, telefone, cargo) {
+        let campos = [nome, nascimento, email, senha, telefone, cargo];
+        for (let campo of campos) {
+            if (campo == "" || campo.length == 1 || campo.trim() == "") {
+                return false;
+            }
+        }
+        if (senha.length <= 6) {
+            console.log("A senha deve ter 6 ou mais dígitos");
+            return false;
+        }
+        return true;
+    }
+
+    function sair() {
+        setTimeout(function () {
+            window.location.href = 'login.html';
+        }, 300);
+    }
+
+    function acessarDashboard() {
+        setTimeout(function () {
+            window.location.href = "dashboard/gerOverview.html";
+        }, 300);
+
+    }
+
+    function cadastrarOutro() {
+        window.location.href = "cadastroUsuario.html"
+    }
+
+</script>

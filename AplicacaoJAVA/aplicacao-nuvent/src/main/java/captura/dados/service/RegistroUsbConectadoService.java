@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 import java.util.List;
 
-public class RegistroDispositivoUsbConectadoService {
+public class RegistroUsbConectadoService {
     Looca looca = new Looca();
     TemplateMySQL templateMySQL = new TemplateMySQL();
     DispositivoUsbService dispositivoUsbService = new DispositivoUsbService();
@@ -20,28 +20,27 @@ public class RegistroDispositivoUsbConectadoService {
 
 //    Insere e coleta todos os dados necessários para a tabela
     public void inserirDadosRegistroUsb() {
-        List<DispositivoUsb> listaDispositivoUsb = dispositivoUsbService.pegarListaDispositivoUsbLooca();
+        List<DispositivoUsbModel> listaDispositivoUsb = templateMySQL.pegarListaDispostivosUsbAtuais();
         Integer fkRegistro = 0;
         Integer fkDispositivoUsb = 0;
 
         for (int i = 0; i < pegarListaDispositivoUsbConectadoLooca().size(); i++) {
+            DispositivoUsbModel dispositivoUsbAtual = listaDispositivoUsb.get(i);
             String nomeDispositivoUsbConectado = pegarListaDispositivoUsbConectadoLooca().get(i).getNome();
             Boolean conectado = false;
 
-            if (listaDispositivoUsb.get(i).getNome().equals(nomeDispositivoUsbConectado)) {
+            if (dispositivoUsbAtual.getNome().equals(nomeDispositivoUsbConectado)) {
                 conectado = true;
             }
 
             fkRegistro = templateMySQL.getTemplateMySQl().queryForObject("""
-                select * from registro where idRegistro = ?;
-                """, new BeanPropertyRowMapper<>(RegistroModel.class), templateMySQL.pegarIdRegistroMaisRecente()).getIdRegistro();
+                select * from registro where id = ?;
+                """, new BeanPropertyRowMapper<>(RegistroModel.class), templateMySQL.pegarIdRegistroMaisRecente()).getId();
 
-            fkDispositivoUsb = templateMySQL.getTemplateMySQl().queryForObject("""
-                select * from dispositivoUsb where idDispositivoUsb = ?;
-                """, new BeanPropertyRowMapper<>(DispositivoUsbModel.class), i+1).getIdDispositivoUsb();
+            fkDispositivoUsb = dispositivoUsbAtual.getId();
 
             templateMySQL.getTemplateMySQl().update("""
-                    insert into registroDispositivoUsbConectado (fkRegistro, fkDispositivoUsb, conectado) values (?, ?, ?)
+                    insert into registroUsbConectado (fkRegistro, fkDispositivoUsb, conectado) values (?, ?, ?)
                     """,fkRegistro, fkDispositivoUsb, conectado);
         }
     }

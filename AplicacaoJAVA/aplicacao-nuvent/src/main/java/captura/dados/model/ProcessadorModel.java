@@ -1,47 +1,47 @@
 package captura.dados.model;
 
 public class ProcessadorModel {
-    private Integer idProcessador;
-    private String nomeProcessador;
-    private String modeloProcessador;
-    private String frequenciaProcessador;
+    private Integer id;
+    private String nome;
+    private String modelo;
+    private String frequencia;
     private Integer qtdProcessadorFisico;
     private Integer qtdProcessadorLogico;
-    private Integer fkAtm;
+    private Integer fkInfraAtm;
 
     public ProcessadorModel() {
     }
 
-    public Integer getIdProcessador() {
-        return idProcessador;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdProcessador(Integer idProcessador) {
-        this.idProcessador = idProcessador;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNomeProcessador() {
-        return nomeProcessador;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeProcessador(String nomeProcessador) {
-        this.nomeProcessador = nomeProcessador;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getModeloProcessador() {
-        return modeloProcessador;
+    public String getModelo() {
+        return modelo;
     }
 
-    public void setModeloProcessador(String modeloProcessador) {
-        this.modeloProcessador = modeloProcessador;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
-    public String getFrequenciaProcessador() {
-        return frequenciaProcessador;
+    public String getFrequencia() {
+        return frequencia;
     }
 
-    public void setFrequenciaProcessador(String frequenciaProcessador) {
-        this.frequenciaProcessador = frequenciaProcessador;
+    public void setFrequencia(String frequencia) {
+        this.frequencia = frequencia;
     }
 
     public Integer getQtdProcessadorFisico() {
@@ -60,24 +60,24 @@ public class ProcessadorModel {
         this.qtdProcessadorLogico = qtdProcessadorLogico;
     }
 
-    public Integer getFkAtm() {
-        return fkAtm;
+    public Integer getFkInfraAtm() {
+        return fkInfraAtm;
     }
 
-    public void setFkAtm(Integer fkAtm) {
-        this.fkAtm = fkAtm;
+    public void setFkInfraAtm(Integer fkInfraAtm) {
+        this.fkInfraAtm = fkInfraAtm;
     }
 
     @Override
     public String toString() {
-        return "---------ProcessadorModel:" +
-                "idProcessador=" + idProcessador +
-                ", nomeProcessador='" + nomeProcessador + '\'' +
-                ", modeloProcessador='" + modeloProcessador + '\'' +
-                ", frequenciaProcessador='" + frequenciaProcessador + '\'' +
+        return "ProcessadorModel{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", frequencia='" + frequencia + '\'' +
                 ", qtdProcessadorFisico=" + qtdProcessadorFisico +
                 ", qtdProcessadorLogico=" + qtdProcessadorLogico +
-                ", fkAtm=" + fkAtm +
-                '-';
+                ", fkInfraAtm=" + fkInfraAtm +
+                '}';
     }
 }

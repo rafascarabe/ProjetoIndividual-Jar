@@ -1,0 +1,128 @@
+.kpiGrupo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.kpiAtm {
+    background-color: #f8f8f8;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 42%;
+}
+
+.kpiAtm p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.kpiDado {
+    background-color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.graficos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    background-color: #f8f8f8;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+#graficoBarra {
+    width: 100%;
+}
+
+.falhas {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.falhasMes {
+    background-color: #e7e7e7;
+    padding: 10px;
+    margin: 15px;
+    width: calc(50% - 10px);
+    border-radius: 5px;
+}
+
+.listaAgencias {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 5px;
+    height: calc(100% + 450px );
+}
+.listaAgencias a {
+    width: calc(100% - 45px);
+}
+
+.filtros {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 97%;
+
+}
+
+.agenciasListadas {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.itemAgencia {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.036);
+}
+
+#alerta {
+    border: 2px solid rgb(255, 204, 0);
+}
+
+#perigo {
+    border: 2px solid red;
+}
+
+#normal {
+    border: 2px solid green;
+}
+
+.margens {
+    display: flex;
+    flex-direction: row;
+}
+
+.esquerda {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-right: 2%;
+    height: 110px;
+}
+.direita {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 2%;
+    height: 110px;
+}
+#id, #cidade{
+    width: 200px;
+    height: 40px;
+    text-align: center;
+}

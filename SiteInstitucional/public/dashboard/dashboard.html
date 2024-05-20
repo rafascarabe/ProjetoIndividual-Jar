@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard | Início</title>
+		<script src="https://kit.fontawesome.com/ce9ef0d266.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="../css/dashboard.css" />
+		<link rel="website icon" type="png" href="../assets/logo-nuvent-semFundo.png">
+	</head>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+	<body>
+		<div class="header">
+			<div class="marca">
+				<img src="../assets/logo-nuvent-semFundo.png" alt="" />
+				<h2>Dashboard</h2>
+			</div>
+
+			<h2>Página Inicial</h2>
+
+			<div class="conta">
+				<img src="../assets/icone_perfil_usuario.png" />
+				<div onclick="mostarOpcoesConta()" class="contaOpcoes">
+					<p>TI</p>
+					<hr />
+					<button onclick="sairConta()">Sair</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="sidebar">
+			<div class="aba" id="aqui">
+				<i class="fa-solid fa-house"></i>
+				<span>Home</span>
+			</div>
+			<a href="dashDispositivos.html">
+				<div class="aba">
+					<i class="fa-solid fa-laptop"></i>
+					<span>ATMs</span>
+				</div>
+			</a>
+			<a href="dashRelatorio.html">
+				<div class="aba">
+					<i class="fa-solid fa-file-alt"></i>
+					<span>Relatórios</span>
+				</div>
+			</a>
+			<a href="dashBaseConchecimento.html">
+				<div class="aba">
+					<i class="fa-solid fa-book-bookmark"></i>
+					<span>Base de Conhecimento</span>
+				</div>
+			</a>
+		</div>
+
+		<!--
+			MARK: dropdown
+		-->
+		<div class="visaoGeral">
+
+			<div class="dropdown" id="dropdown">
+				<h2>Filtrar por</h2>
+		
+				<div>
+					<h3>Componente</h3>
+			
+					<ul>
+						<li><label><input type="checkbox" name="item1" value="processador"> Processador</label></li>
+						<li><label><input type="checkbox" name="item2" value="cpu"> CPU</label></li>
+						<li><label><input type="checkbox" name="item3" value="conexaoUsb"> Conexão USB</label></li>
+						<li><label><input type="checkbox" name="item4" value="memoria"> Memória</label></li>
+						<li><label><input type="checkbox" name="item4" value="disco"> Disco</label></li>
+					</ul>
+				</div>
+				
+				<div class="data">
+					<h3>Data</h3>
+		
+					<input type="date" id="data" name="data">
+		
+				</div>
+		
+		
+				<div class="divIdAtm">
+					<h3>ID ATM</h3>
+					<select name="" id="idAtm">
+						<option value="" selected>Selecionar</option>
+						<option value="">ATM-001</option>
+						<option value="">ATM-002</option>
+						<option value="">ATM-003</option>
+						<option value="">ATM-004</option>
+						<option value="">ATM-005</option>
+						<option value="">ATM-006</option>
+						<option value="">ATM-007</option>
+						<option value="">ATM-008</option>
+					</select>
+				</div>
+		
+				<div class="divUltimoAlerta">
+					<h3>Último alerta</h3>
+					<select name="" id="ultimoAlerta">
+						<option value="">Até 1 hora atrás</option>
+						<option value="">Até 5 horas atrás</option>
+						<option value="">até 12 horas atrás</option>
+						<option value="">Até 1 dia</option>
+						<option value="">Até 3 dias</option>
+						<option value="">Até 1 semana</option>
+						<option value="">Até 15 dias</option>
+					</select>
+				</div>
+		
+				<div class="botoes">
+					<button onclick="limpar()" id="limpar">Limpar</button>
+					<button onclick="aplicarFiltros()" id="aplicarFiltros">Aplicar Filtros</button>
+				</div>
+				
+				
+				
+			</div>
+
+			<div class="kpis_graficos">
+
+				<div class="grafico">
+					<div id="ocorrencia_chart" style="width: 400px; height: 300px"></div>
+					
+				</div>
+
+				<div class="kpiDesempenhoHardware">
+					<div class="itemATM">
+						<p>Qual ATM mais teve problema de Disco na última semana</p>
+						<h3 id="atmsProblemaDisco">ATM004</h3>
+					</div>
+					<div class="itemATM">
+						<p>Qual ATM mais teve problema de Memória na última semana</p>
+						<h3 id="atmsProblemaMemoria">ATM010</h3>
+					</div>
+					<div class="itemATM">
+						<p>Qual ATM mais teve problema de Processador na última semana</p>
+						<h3 id="atmsProblemaProcessador">ATM004</h3>
+					</div>
+					<div class="itemATM">
+						<p>Quantidade de ATMs em funcionamento normal</p>
+						<h3 id="atmsFuncionametoNormal">6</h3>
+					</div>
+
+					<div class="aplicarFiltros" id="botaoaAplicarFiltros">
+						<button onclick="aplicarFiltros()" >Filtrar por</button>
+					</div>
+
+				</div>
+
+
+			</div>
+
+			<!-- MARK: TELA PRINCIPAL -->
+
+			<div class="AtmEstatisticas">
+					<div id="espacoAtms">
+				<!-- 
+				<div class="cardAtm">
+					<div class="AtmAlerta" style="background-color: #b80000;">
+							<h3>Ultimo alerta <br/>
+								ATM-005
+							</h3>
+						</div>
+
+					<div class="AtmStats">
+						<h3 id="idTerminal">ATM-005</h3>
+						<p>Uso de CPU: <span id="cpuAtm5">30%</span></p>
+						<p>Uso de Memória: <span id="memoriaAtm5">20%</span></p>
+						<p>Uso de Disco: <span id="discoAtm5">5%</span></p>
+					</div>
+				</div>
+
+				<div class="cardAtm">
+					<div class="AtmAlerta" style="background-color: #b80000;">
+							<h3>Ultimo alerta <br/>
+								ATM-008
+							</h3>
+						</div>
+
+					<div class="AtmStats">
+						<h3>ATM-008</h3>
+						<p>Uso de CPU: 30%</p>
+						<p>Uso de Memória: 20%</p>
+						<p>Uso de Disco: 5%</p>
+					</div>
+				</div>
+
+				<div class="cardAtm">
+					<div class="AtmAlerta">
+							<h3>Ultimo alerta <br/>
+								ATM-001
+							</h3>
+						</div>
+
+					<div class="AtmStats">
+						<h3>ATM-001</h3>
+						<p>Uso de CPU: 30%</p>
+						<p>Uso de Memória: 20%</p>
+						<p>Uso de Disco: 5%</p>
+					</div>
+				</div>
+
+				<div class="cardAtm">
+					<div class="AtmAlerta">
+							<h3>Ultimo alerta <br/>
+								ATM-002
+							</h3>
+						</div>
+
+					<div class="AtmStats">
+						<h3>ATM-002</h3>
+						<p>Uso de CPU: 30%</p>
+						<p>Uso de Memória: 20%</p>
+						<p>Uso de Disco: 5%</p>
+					</div>
+				</div>
+
+				<div class="cardAtm">
+					<div class="AtmAlerta">
+							<h3>Ultimo alerta <br/>
+								ATM-003
+							</h3>
+						</div>
+
+					<div class="AtmStats">
+						<h3>ATM-003</h3>
+						<p>Uso de CPU: 30%</p>
+						<p>Uso de Memória: 20%</p>
+						<p>Uso de Disco: 5%</p>
+					</div>
+				</div>
+
+				<div class="cardAtm">
+					<div class="AtmAlerta">
+							<h3>Ultimo alerta <br/>
+								ATM-004
+							</h3>
+						</div>
+
+					<div class="AtmStats">
+						<h3>ATM-004</h3>
+						<p>Uso de CPU: 30%</p>
+						<p>Uso de Memória: 20%</p>
+						<p>Uso de Disco: 5%</p>
+					</div>
+				</div>
+				<div class="cardAtm">
+					<div class="AtmAlerta">
+							<h3>Ultimo alerta <br/>
+								ATM-006
+							</h3>
+						</div>
+
+					<div class="AtmStats">
+						<h3>ATM-006</h3>
+						<p>Uso de CPU: 30%</p>
+						<p>Uso de Memória: 20%</p>
+						<p>Uso de Disco: 5%</p>
+					</div>
+				</div>
+
+				<div class="cardAtm">
+					<div class="AtmAlerta">
+							<h3>Ultimo alerta <br/>
+								ATM-007
+							</h3>
+						</div>
+
+					<div class="AtmStats">
+						<h3>ATM-007</h3>
+						<p>Uso de CPU: 30%</p>
+						<p>Uso de Memória: 20%</p>
+						<p>Uso de Disco: 5%</p>
+					</div>
+				</div>
+
+				<div class="cardAtm">
+					<div class="AtmAlerta">
+							<h3>Ultimo alerta <br/>
+								ATM-009
+							</h3>
+						</div>
+
+					<div class="AtmStats">
+						<h3>ATM-009</h3>
+						<p>Uso de CPU: 30%</p>
+						<p>Uso de Memória: 20%</p>
+						<p>Uso de Disco: 5%</p>
+					</div>
+				</div>
+
+				<div class="cardAtm">
+					<div class="AtmAlerta">
+							<h3>Ultimo alerta <br/>
+								ATM-010
+							</h3>
+						</div>
+
+					<div class="AtmStats">
+						<h3>ATM-010</h3>
+						<p>Uso de CPU: 30%</p>
+						<p>Uso de Memória: 20%</p>
+						<p>Uso de Disco: 5%</p>
+					</div>
+				</div>
+				
+				-->
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+
+<script>
+
+	var divAplicarFiltros = true;
+
+	function aplicarFiltros(){
+
+		if(divAplicarFiltros == true){
+			dropdown.style.display = "flex";
+			divAplicarFiltros = false;
+		} else{
+			dropdown.style.display = "none";
+			divAplicarFiltros = true;
+		}
+	}
+
+	function limpar(){
+
+			if(divAplicarFiltros == true){
+				dropdown.style.display = "flex";
+				divAplicarFiltros = false;
+			} else{
+				dropdown.style.display = "none";
+				divAplicarFiltros = true;
+			}
+			
+	}
+
+	function listarAtms() {
+    var endereco = sessionStorage.ID_USUARIO;
+
+    fetch(`/usuarios/listar/${endereco}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+
+          console.log('pericias encontradas:' + resposta.length)
+
+          plotarAtms(resposta)
+
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
+
+  function plotarAtms(resposta) {
+
+
+    for (i = 0; i < resposta.length; i++) {
+
+      console.log(resposta)
+
+      espacoAtms.innerHTML += `
+	  			<div class="cardAtm">
+					<div class="AtmAlerta">
+							<h3>Ultimo alerta <br/>
+								ATM-001
+							</h3>
+						</div>
+
+					<div class="AtmStats">
+						<h3>ATM-001</h3>
+						<p>Uso de CPU: 30%</p>
+						<p>Uso de Memória: 20%</p>
+						<p>Uso de Disco: 5%</p>
+					</div>
+				</div>
+            `;
+
+    }
+
+
+
+  }
+
+</script>
+
+<!-- MARK: JS GRAFICO -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+	var data = google.visualization.arrayToDataTable([
+	  ['Horas', 'ocorrencias'],
+	  ['1',  1],
+	  ['5',  5],
+	  ['10',  7],
+	  ['15',  12],
+	  ['20',  3],
+	  ['24',  6]
+	]);
+
+	var options = {
+	  title: 'Total de ocorrências',
+	  legend: { position: 'bottom' }
+	};
+
+	var chart = new google.visualization.LineChart(document.getElementById('ocorrencia_chart'));
+
+	chart.draw(data, options);
+  }
+</script>

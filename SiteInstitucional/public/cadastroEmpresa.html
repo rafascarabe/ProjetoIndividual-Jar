@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/cadEmpresa.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Torne-se um parceiro</title>
+        <link rel="website icon" type="png" href="assets/logo-nuvent-semFundo.png">
+        <script src="https://kit.fontawesome.com/ce9ef0d266.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="header">
+            <img src="assets/logo-nuvent-semFundo.png" alt="logo" />
+            <span>Nuvent</span>
+            <div class="LoginCadastro">
+                <button id="login"><a href="login.html">Login</a></button>
+                <button id="cadastro"><a href="cadastroEmpresa.html">Cadastro</a></button>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Cadastro de Empresa</h1>
+            <div class="BIG-CONTAINER">
+                <div class="cadastro-container cadastro-empresa">
+                    <div class="campo">
+                        <i class="fa-solid fa-building" id="icon1"></i>
+                        <input type="text" id="nome" name="nome" placeholder="Nome da Empresa" required>
+                    </div>
+                    <div class="campo">
+                        <i class="fa-solid fa-mask" id="icon2"></i>
+                        <input type="text" id="nomeFantasia" name="fantasia" placeholder="Nome Fantasia" required>
+                    </div>
+                    <div class="campo">
+                        <i class="fa-solid fa-id-card-clip" id="icon3"></i>
+                        <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" required>
+                    </div>
+                    <div class="campo">
+                        <i class="fa-solid fa-building" id="icon1"></i>
+                        <input type="text" id="logradouro" name="logradouro" placeholder="Logradouro" required>
+                    </div>
+                </div>
+
+                <div class="cadastro-container cadastro-empresa">
+                    <div class="campo">
+                        <i class="fa-solid fa-location-arrow" id="icon2"></i>
+                        <input type="text" id="numero" name="numero" placeholder="Número" required>
+                    </div>
+                    <div class="campo">
+                        <i class="fa-solid fa-map-marker" id="icon3"></i>
+                        <input type="text" id="cep" name="cep" placeholder="CEP" required>
+                    </div>
+                    <div class="campo">
+                        <i class="fa-solid fa-globe" id="icon4"></i>
+                        <Select id="estado" name="estado" placeholder="Estado" required>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </Select>
+
+                        <!-- <input type="text" id="estado" name="estado" placeholder="Estado" required> -->
+
+                    </div>
+                    <div class="campo">
+                        <i class="fa-solid fa-road" id="icon5"></i>
+                        <input type="text" id="complemento" name="complemento" placeholder="Complemento" required>
+                    </div>
+                </div>
+
+            </div>
+            <span id="mensagem_erro" style="color: red;"></span>
+            <button type="submit" onclick="cadastrarEmpresa()">Cadastrar</button>
+        </div>
+        <script defer>
+            function cadastrarEmpresa() {
+                let nomeVar = document.getElementById('nome').value;
+                let nomeFantasiaVar = document.getElementById('nomeFantasia').value;
+                let cnpjVar = document.getElementById('cnpj').value;
+                let logradouroVar = document.getElementById('logradouro').value;
+                let numeroVar = document.getElementById('numero').value;
+                let cepVar = document.getElementById('cep').value;
+                let estadoVar = document.getElementById('estado').value;
+                let complementoVar = document.getElementById('complemento').value;
+
+                let valido = checarValores(nomeVar, nomeFantasiaVar, cnpjVar, logradouroVar, numeroVar, cepVar, estadoVar, complementoVar);
+
+                if (valido) {
+                    fetch("/empresas/cadastrar", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            nome: nomeVar,
+                            nomeFantasia: nomeFantasiaVar,
+                            cnpj: cnpjVar,
+                            logradouro: logradouroVar,
+                            numero: numeroVar,
+                            cep: cepVar,
+                            estado: estadoVar,
+                            complemento: complementoVar
+                        })
+                    }).then(function (resposta) {
+                        if (!resposta.ok) {
+
+                        }
+                    });
+                }
+            }
+
+            function checarValores(nome, nomeFantasia, cnpj, logradouro, numero, cep, estado, complemento) {
+                let campos = [nome, nomeFantasia, cnpj, logradouro, numero, cep, estado, complemento];
+                for (let campo of campos) {
+                    if (campo == "" || campo.length == 1 || campo.trim() == "") {
+                        return false;
+                    }
+                }
+                if (cep.length != 8) {
+                    console.log("O CEP deve ter 8 dígitos");
+                    return false;
+                }
+                if (cnpj.length != 14) {
+                    console.log("O CNPJ deve ter 14 dígitos");
+                    return false;
+                }
+                return true;
+            }
+
+        </script>
+
+    </body>
+    
+</html>

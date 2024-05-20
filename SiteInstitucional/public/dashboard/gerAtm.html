@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard | Agência 1</title>
+        <script src="https://kit.fontawesome.com/ce9ef0d266.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <link rel="stylesheet" href="../css/dashboard.css">
+        <link rel="stylesheet" href="../css/gerAtm.css">
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="marca">
+                <img src="../assets/logo-nuvent-semFundo.png" alt="" />
+                <h2>Dashboard</h2>
+            </div>
+
+            <h2>ATMs</h2>
+
+            <div class="conta">
+                <img src="../assets/icone_perfil_usuario.png" />
+                <div onclick="mostarOpcoesConta()" class="contaOpcoes">
+                    <p>Gerente</p>
+                    <hr>
+                    <button onclick="sairConta()">Sair</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <a href="gerOverview.html">
+                <div class="aba">
+                    <i class="fa-solid fa-landmark"></i>
+                    <span>Agências</span>
+                </div>
+            </a>
+
+            <div class="aba" id="aqui">
+                <i class="fa-solid fa-laptop"></i>
+                <span>ATMs</span>
+            </div>
+
+            <a href="#">
+                <div class="aba">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Funcionários</span>
+                </div>
+            </a>
+        </div>
+        <div class="margens">
+            <div class="margensSecundaria">
+                <div class="esquerda">
+                    <h2>Nome da Agência</h2>
+                    <div class="alertas">
+                        <div class="alerta">
+                            <h3>Alerta 1</h3>
+                            <p>Data e hora: 01/01/2024 12:00</p>
+                            <p>Tempo ativo: 2 horas</p>
+                        </div>
+                        <div class="alerta">
+                            <h3>Alerta 2</h3>
+                            <p>Data e hora: 01/01/2024 12:00</p>
+                            <p>Tempo ativo: 2 horas</p>
+                        </div>
+                        <div class="alerta">
+                            <h3>Alerta 3</h3>
+                            <p>Data e hora: 01/01/2024 12:00</p>
+                            <p>Tempo ativo: 2 horas</p>
+                        </div>
+                        <div class="alerta">
+                            <h3>Alerta 4</h3>
+                            <p>Data e hora: 01/01/2024 12:00</p>
+                            <p>Tempo ativo: 2 horas</p>
+                        </div>
+                        <div class="alerta">
+                            <h3>Alerta 5</h3>
+                            <p>Data e hora: 01/01/2024 12:00</p>
+                            <p>Tempo ativo: 2 horas</p>
+                        </div>
+                        <div class="alerta">
+                            <h3>Alerta 6</h3>
+                            <p>Data e hora: 01/01/2024 12:00</p>
+                            <p>Tempo ativo: 2 horas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="direita">
+                    <div class="containerKPI">
+                        <div class="atms">
+                            <p>Ativos: 10</p>
+                            <p>Desativados: 2</p>
+                            <p>Com problema: 1</p>
+                        </div>
+                        <div class="falhas">
+                            <p>ATM com mais falhas na última semana: </p>
+                            <p id="falho">ATM-X</p>
+                        </div>
+                    </div>
+
+                    <div class="containerGrafico">
+                        <div id="grafico"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listaAtms">
+                <div class="atm" id="ativo">
+                    <h2>ATM 01</h2>
+                    <p>Último alerta: 01/01/2024 12:00</p>
+                    <hr>
+                    <p>Status: Ativo</p>
+                    <p>Falhas na semana: 2</p>
+                    <p>Falhas hoje: 1</p>
+                </div>
+                <div class="atm" id="inativo">
+                    <h2>ATM 02</h2>
+                    <p>Último alerta: 01/01/2024 12:00</p>
+                    <hr>
+                    <p>Status: Desativado</p>
+                    <p>Falhas na semana: 2</p>
+                    <p>Falhas hoje: 1</p>
+                </div>
+                <div class="atm" id="problema">
+                    <h2>ATM 03</h2>
+                    <p>Último alerta: 01/01/2024 12:00</p>
+                    <hr>
+                    <p>Status: Com Problema</p>
+                    <p>Falhas na semana: 2</p>
+                    <p>Falhas hoje: 1</p>
+                </div>
+                <div class="atm" id="ativo">
+                    <h2>ATM 04</h2>
+                    <p>Último alerta: 01/01/2024 12:00</p>
+                    <hr>
+                    <p>Status: Ativo</p>
+                    <p>Falhas na semana: 2</p>
+                    <p>Falhas hoje: 1</p>
+                </div>
+                <div class="atm" id="ativo">
+                    <h2>ATM 05</h2>
+                    <p>Último alerta: 01/01/2024 12:00</p>
+                    <hr>
+                    <p>Status: Ativo</p>
+                    <p>Falhas na semana: 2</p>
+                    <p>Falhas hoje: 1</p>
+                </div>
+                <div class="atm" id="ativo">
+                    <h2>ATM 06</h2>
+                    <p>Último alerta: 01/01/2024 12:00</p>
+                    <hr>
+                    <p>Status: Ativo</p>
+                    <p>Falhas na semana: 2</p>
+                    <p>Falhas hoje: 1</p>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
+
+<script>
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Dia', 'Ocorrências'],
+            ['Segunda', 5],
+            ['Terça', 7],
+            ['Quarta', 3],
+            ['Quinta', 4],
+            ['Sexta', 2],
+            ['Sábado', 6],
+            ['Domingo', 5]
+        ]);
+
+        var options = {
+            title: 'Número de ocorrências durante a semana',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('grafico'));
+
+        chart.draw(data, options);
+    }
+
+</script>

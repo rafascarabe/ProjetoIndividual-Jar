@@ -192,6 +192,6 @@ select idDispositivoUsb, nomeDispostivo from DispositivoUsb;
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:376)
 	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:452)
 	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:462)
-	at captura.dados.service.RegistroDispositivoUsbConectadoService.pegarListaNomeDispostivoUsb(RegistroDispositivoUsbConectadoService.java:21)
-	at captura.dados.service.RegistroDispositivoUsbConectadoService.inserirDadosRegistroUsb(RegistroDispositivoUsbConectadoService.java:28)
+	at captura.dados.service.RegistroUsbConectadoService.pegarListaNomeDispostivoUsb(RegistroDispositivoUsbConectadoService.java:21)
+	at captura.dados.service.RegistroUsbConectadoService.inserirDadosRegistroUsb(RegistroDispositivoUsbConectadoService.java:28)
 	at captura.dados.main.MainH2.main(MainH2.java:130)

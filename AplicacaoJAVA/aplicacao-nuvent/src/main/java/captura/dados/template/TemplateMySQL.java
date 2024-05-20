@@ -5,6 +5,8 @@ import captura.dados.model.*;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.List;
+
 public class TemplateMySQL {
     public ConexaoMySQL conexaoMySQL = new ConexaoMySQL();
     public JdbcTemplate templateMySQl = conexaoMySQL.getConexaoBanco();
@@ -12,46 +14,46 @@ public class TemplateMySQL {
     public TemplateMySQL() {
     }
 
-    public Integer pegarIdBancoMaisRecente() {
+    public Integer pegarIdInfraAtmMaisRecente() {
         return templateMySQl.queryForObject("""
-                    select * from banco order by idBanco desc limit 1
-                    """, new BeanPropertyRowMapper<>(BancoModel.class)).getIdBanco();
-    }
-
-    public Integer pegarIdAtmMaisRecente() {
-        return templateMySQl.queryForObject("""
-                    select * from atm order by idAtm desc limit 1
-                    """, new BeanPropertyRowMapper<>(AtmModel.class)).getIdAtm();
+                    select * from infraestruturaAtm where fkAtm = 1 order by id desc limit 1
+                    """, new BeanPropertyRowMapper<>(InfraestruturaAtmModel.class)).getId();
     }
 
     public Integer pegarIdProcessadorMaisRecente() {
         return templateMySQl.queryForObject("""
-                    select * from processador order by idProcessador desc limit 1
-                    """, new BeanPropertyRowMapper<>(ProcessadorModel.class)).getIdProcessador();
+                    select * from processador where fkInfraAtm = ? order by id desc limit 1
+                    """, new BeanPropertyRowMapper<>(ProcessadorModel.class), pegarIdInfraAtmMaisRecente()).getId();
     }
 
     public Integer pegarIdMemoriaMaisRecente() {
         return templateMySQl.queryForObject("""
-                    select * from memoria order by idMemoria desc limit 1
-                    """, new BeanPropertyRowMapper<>(MemoriaModel.class)).getIdMemoria();
+                    select * from memoria where fkInfraAtm = ? order by id desc limit 1
+                    """, new BeanPropertyRowMapper<>(MemoriaModel.class), pegarIdInfraAtmMaisRecente()).getId();
     }
 
     public Integer pegarIdDiscoMaisRecente() {
         return templateMySQl.queryForObject("""
-                    select * from disco order by idDisco desc limit 1
-                    """, new BeanPropertyRowMapper<>(DiscoModel.class)).getIdDisco();
+                    select * from disco where fkInfraAtm = ? order by id desc limit 1
+                    """, new BeanPropertyRowMapper<>(DiscoModel.class), pegarIdInfraAtmMaisRecente()).getId();
     }
 
     public Integer pegarIdRegistroMaisRecente() {
         return templateMySQl.queryForObject("""
-                    select * from registro order by idRegistro desc limit 1
-                    """, new BeanPropertyRowMapper<>(RegistroModel.class)).getIdRegistro();
+                    select * from registro where fkProcessador = ? order by id desc limit 1
+                    """, new BeanPropertyRowMapper<>(RegistroModel.class), pegarIdProcessadorMaisRecente()).getId();
+    }
+
+    public List<DispositivoUsbModel> pegarListaDispostivosUsbAtuais() {
+        return templateMySQl.query("""
+                select * from dispositivoUsb where fkInfraAtm = ? order by id
+                """, new BeanPropertyRowMapper<>(DispositivoUsbModel.class), pegarIdInfraAtmMaisRecente());
     }
 
     public Integer pegarJanelaMaisRecentePorId() {
         return templateMySQl.queryForObject("""
-                    select * from janela order by id desc limit 1
-                    """, new BeanPropertyRowMapper<>(RegistroModel.class)).getIdRegistro();
+                    select * from janelas order by id desc limit 1
+                    """, new BeanPropertyRowMapper<>(JanelaModel.class)).getIdJanela();
     }
 
     public JdbcTemplate getTemplateMySQl() {

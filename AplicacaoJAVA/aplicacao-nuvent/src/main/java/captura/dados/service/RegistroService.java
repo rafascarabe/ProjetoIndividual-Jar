@@ -38,7 +38,7 @@ public class RegistroService {
     }
 
     public String pegarPorcentagemUsoProcessador() {
-        Double usoProcessador = pegarUsoProcessador() * 10.0;
+        Double usoProcessador = pegarUsoProcessador();
         String porcentagemUsoProcessador = formatarDecimal.format(usoProcessador);
         return porcentagemUsoProcessador;
     }
@@ -62,11 +62,10 @@ public class RegistroService {
 
 //    Faz insert do registro e também coleta os dados de Disco necessários
     public void inserirDadosRegistro() {
-        for (int i = 0; i < discoService.pegarListaDiscoLooca().size(); i++) {
-            Long qtdTotalDiscoBytes = discoService.pegarListaVolumeLooca().get(i).getTotal();
-            Long qtdDisponivelDiscoBytes = discoService.pegarListaVolumeLooca().get(i).getDisponivel();
+            Long qtdTotalDiscoBytes = discoService.pegarListaVolumeLooca().get(0).getTotal();
+            Long qtdDisponivelDiscoBytes = discoService.pegarListaVolumeLooca().get(0).getDisponivel();
             Long qtdUsoDiscoBytes = qtdTotalDiscoBytes - qtdDisponivelDiscoBytes;
-            Double porcentagemUsoDiscoBytes = (qtdUsoDiscoBytes * 100.0) / qtdTotalDiscoBytes;
+            Double porcentagemUsoDiscoBytes = ((qtdUsoDiscoBytes * 100.0) / qtdTotalDiscoBytes) / 10.0;
 
             String qtdUsoDisco = conversor.formatarBytes(qtdUsoDiscoBytes);
             String qtdDisponivelDisco = conversor.formatarBytes(qtdDisponivelDiscoBytes);
@@ -82,6 +81,5 @@ public class RegistroService {
                     pegarQtdDisponivelMemoria(), pegarPorcentagemUsoMemoria(), qtdUsoDisco, qtdDisponivelDisco,
                     porcentagemUsoDisco, templateMySQL.pegarIdProcessadorMaisRecente(), templateMySQL.pegarIdMemoriaMaisRecente(),
                     templateMySQL.pegarIdDiscoMaisRecente());
-        }
     }
 }

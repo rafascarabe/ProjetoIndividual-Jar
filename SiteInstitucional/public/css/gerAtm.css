@@ -1,0 +1,142 @@
+.margensSecundaria {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.direita {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+
+.esquerda {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.alertas, .atms, .falhas, .containerGrafico, .esquerda h2 {
+    background-color: #f8f8f8;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#grafico {
+    width: 100%;
+    height: 100%;
+}
+.containerGrafico {
+    height: 20rem;
+}
+
+.esquerda h2 {
+    text-align: center;
+    margin-top: 2px;
+}
+
+.alertas {
+    height: 25rem;
+    overflow-y: scroll;
+    border:solid 7px #f8f8f8;
+    border-left: none;
+    border-right: none;
+}
+.alerta {
+    background-color: #cccccc;
+    padding: 10px;
+    margin: 7px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.esquerda h3 {
+    margin-top: 10px;
+}
+
+.containerKPI {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+.atms {
+    width: 35%;
+    height: inherit;
+}
+.falhas {
+    width: 40%;
+    height: inherit;
+}
+#falho {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    border: solid #0000003d 1px;
+}
+
+.ativo {
+    background-color: green;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.desativo {
+    background-color: red;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.com-problema {
+    background-color: orange;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.dadoATM {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    height: 20px;
+}
+
+.atm {
+    background-color: #f8f8f8;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 5px;
+}
+.atm h2 {
+    margin-top: 10px;
+}
+.listaAtms {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+#inativo {
+    border: 3px solid rgb(94, 94, 94);
+}
+
+#problema {
+    border: 3px solid red;
+}
+
+#ativo {
+    border: 3px solid green;
+}

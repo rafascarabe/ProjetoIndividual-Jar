@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shorcut-icon" href="assets/logo-nuvent-semFundo.png" type="image/x-icon">
+
+        <link rel="stylesheet" href="css/cadastroUsuario.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+        <link rel="website icon" type="png" href="assets/logo-nuvent-semFundo.png">
+        <title>Cadastro</title>
+    </head>
+
+    <body>
+
+        <div class="header">
+            <img src="assets/logo-nuvent-semFundo.png" alt="logo" />
+            <span>Nuvent</span>
+
+            <div class="LoginCadastro">
+                <button id="login"><a href="login.html">Login</a></button>
+                <button id="cadastro"><a href="cadastro.html">Cadastro</a></button>
+            </div>
+        </div>
+
+
+
+        <div class="bloco-cadastro">
+
+            <div class="voltar_pagina_anterior">
+                <a href="cadastroEmpresa.html"><img src="assets/seta_esquerda_azul.png" alt="seta-esquerda"
+                        id="icone_voltar_pagina_anterior"></a>
+            </div>
+
+            <h1>Cadastro de Funcionários</h1>
+
+            <div class="cadastro-campos">
+                <div class="campo">
+                    <p>Nome completo</p>
+                    <div>
+                        <img src="assets/usuario-icone.png">
+                        <input type="text" name="nome_usuario" id="nome_usuario">
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <p>Data de nascimento</p>
+                    <div>
+                        <img src="assets/data_nascimento_icone.png">
+                        <input type="date" name="nascimento_usuario" id="nascimento_usuario">
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <p>Email</p>
+                    <div>
+                        <img src="assets/email_icone.png">
+                        <input type="email" name="email_usuario" id="email_usuario">
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <p>Senha</p>
+                    <div>
+                        <img src="assets/senha_icone.png">
+                        <input type="password" name="senha_usuario" id="senha_usuario">
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <p>Telefone</p>
+                    <div>
+                        <img src="assets/telefone_icone.png">
+                        <input type="tel" name="telefone_usuario" id="telefone_usuario">
+                    </div>
+                </div>
+
+                <div class="campo cargo">
+
+                    <P>Cargo</P>
+                    <div>
+                        <select name="cargo" id="cargo_usuario">
+                            <option value="vazio" selected>Selecionar</option>
+                            <option value="">Atendente</option>
+                            <option value="">Gerente</option>
+                            <option value="">Analista de Dados</option>
+                            <option value="">Infraestrutura e Tech</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="campo permissoes_usuario">
+
+                    <P>Permissões</P>
+                    <div>
+                        <select name="permissoes" id="permissoes_usuario">
+                            <option value="" selected>Apenas visualização de dashboards de desempenho das máquinas.
+                            </option>
+                            <option value="">Visualização de dashboards e de relatórios de desempenho</option>
+                            <option value="">Visualização e Download de dashboards e relatórios de desempenho das
+                                máquinas.</option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <span id="mensagem_erro" style="color: red;"></span>
+
+                <div class="botoes">
+                    <button id="cancelar" type="button" onclick="cancelar()">
+                        Cancelar
+                    </button>
+
+                    <button id="cadastrar" type="button" onclick="cadastrar()">
+                        Cadastrar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mensagem" id="mensagem">
+            <img class="verify" src="assets/sucesso.png" alt="sucesso">
+            <p>Cadastro realizado com sucesso!</p>
+
+            <button id="cadastrar_outro" onclick="cadastrarOutro()">Cadastrar outro Usuário</button>
+            <button id="acessar_dashboard" onclick="acessarDashboard()">Acessar Dashboards</button>
+            <button id="sair" onclick="sair()">Sair</button>
+        </div>
+
+
+
+    </body>
+
+</html>
+
+<script>
+
+    function cadastrar() {
+
+        var nomeVar = nome_usuario.value;
+        var nascimentoVar = nascimento_usuario.value;
+        var emailVar = email_usuario.value;
+        var senhaVar = senha_usuario.value;
+        var telefoneVar = telefone_usuario.value;
+        //var cargoVar = cargo_usuario.value;
+
+        var mensagem = document.getElementById('mensagem');
+
+        if (nomeVar == '' || nomeVar.trim() == ''
+            || nascimentoVar == '' || nascimentoVar.trim() == ''
+            || emailVar == '' || emailVar.trim() == ''
+            || senhaVar == '' || senhaVar.trim() == ''
+            || telefoneVar == '' || telefoneVar.trim() == ''
+            //|| cargoVar == "vazio"
+        ) {
+            mensagem_erro.innerHTML = `&#10008; Preencha todas as informações`;
+        } else if (senha.length <= 6) {
+            mensagem_erro.innerHTML = `&#10008; A senha deve ter 6 ou mais dígitos`;
+        } else {
+            
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                            nomeServer: nomeVar,
+                            nascimentoServer: nascimentoVar,
+                            emailServer: emailVar,
+                            senhaServer: senhaVar,
+                            telefoneServer: telefoneVar,
+                            //cargoServer: cargoVar,
+                            
+                        })
+                    }).then(function (resposta) {
+                        if (!resposta.ok) {
+                            
+                        }
+                    });
+
+            mensagem.style.display = 'flex';
+        }
+    }
+
+    function sair() {
+
+        // Aguardar 2 segundos antes de redirecionar para a página de perfil
+        setTimeout(function () {
+            window.location.href = 'login.html';
+        }, 500);
+    }
+
+    function acessarDashboard() {
+
+        setTimeout(function () {
+            window.location.href = "../dashboard/dashboard.html";
+        }, 500);
+
+    }
+
+    function cadastrarOutro() {
+
+        function cadastrarOutro() {
+
+            // Limpar os campos do formulário
+            document.getElementById("nome_usuario").value = "";
+            document.getElementById("nascimento_usuario").value = "";
+            document.getElementById("email_usuario").value = "";
+            document.getElementById("senha_usuario").value = "";
+            document.getElementById("telefone_usuario").value = "";
+            document.getElementById("cargo_usuario").selectedIndex = 0;
+
+            // Redefinir a mensagem de erro
+            document.getElementById("mensagem_erro").innerHTML = "";
+
+            // Esconder a mensagem de sucesso
+            document.getElementById("mensagem").style.display = "none";
+        }
+    }
+
+
+    /*
+    setTimeout(function() {
+        mensagem.style.display = 'none';
+    }, 3000); // Esconde a mensagem após 3 segundos
+    */
+
+
+</script>

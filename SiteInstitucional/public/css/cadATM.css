@@ -1,0 +1,85 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(/SiteInstitucional/assets/FundoQuadrado.png);
+    background-attachment: fixed;
+    background-repeat:repeat-x;
+    background-size: contain;
+}
+/* 
+    MARK: HEADER
+*/
+.header {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: rgba(48, 48, 48, 0.838);
+    color: #fff;
+    height: 4.2rem;
+    backdrop-filter: blur(5px);
+    position: fixed;
+    width: 97.5%;
+    top: 0;
+}
+
+.header img {
+    width: 105px;
+    position: relative;
+}
+
+.header span {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+    font-family: "Lexend", sans-serif;
+}
+
+.header .LoginCadastro {
+    background-color: rgba(69, 68, 68, 1);
+    display: flex;
+    margin-left: auto;
+    border-radius: 6px;
+}
+  
+  .header .LoginCadastro button {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: "Lexend", sans-serif;
+}
+
+#login {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background-color: rgba(69, 68, 68, 1);
+}
+
+#cadastro {
+    background-color: rgba(91, 91, 91, 1);
+}
+
+.container{
+    margin-top: 150px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-cadastroATM{
+    margin: 0;
+    padding: 0;
+    border-radius: 18px;
+    border: 2px solid outset;
+    width: 440px;
+    height: 630px;
+    background-color: rgb(194, 191, 191);
+    box-shadow: 6px 5px 7px 3px rgba(1, 0, 0, 0.6);
+}

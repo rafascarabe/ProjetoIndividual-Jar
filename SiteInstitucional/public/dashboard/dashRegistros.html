@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard | Registros</title>
+		<script src="https://kit.fontawesome.com/ce9ef0d266.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="../css/dashboard.css" />
+		<link rel="stylesheet" href="../css/dashRegistros.css" />
+		<link rel="website icon" type="png" href="../assets/logo-nuvent-semFundo.png">
+	</head>
+
+	<style>
+		@import url("https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap");
+	</style>
+
+	<body>
+		<div class="header">
+			<div class="marca">
+				<img src="../assets/logo-nuvent-semFundo.png" alt="" />
+				<h2>Dashboard</h2>
+			</div>
+
+			<h2>Lista de Registros</h2>
+
+			<div class="conta">
+				<img src="../assets/icone_perfil_usuario.png" />
+				<div onclick="mostarOpcoesConta()" class="contaOpcoes">
+					<p>TI</p>
+					<hr />
+					<button onclick="sairConta()">Sair</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="sidebar">
+			<a href="dashboard.html">
+				<div class="aba">
+					<i class="fa-solid fa-house"></i>
+					<span>Home</span>
+				</div>
+			</a>
+			<a href="dashDispositivos.html">
+				<div class="aba">
+					<i class="fa-solid fa-laptop"></i>
+					<span>ATMs</span>
+				</div>
+			</a>
+			<!--<div class="aba" id="aqui">
+				<i class="fa-solid fa-rectangle-list"></i>
+				<span>Lista de Registros</span>
+			</div>-->
+			<a href="dashRelatorio.html">
+				<div class="aba">
+					<i class="fa-solid fa-file-alt"></i>
+					<span>Relatórios</span>
+				</div>
+			</a>
+			<a href="dashBaseConchecimento.html">
+				<div class="aba">
+					<i class="fa-solid fa-book-bookmark"></i>
+					<span>Base de Conhecimento</span>
+				</div>
+			</a>
+		</div>
+
+		<div class="margens">
+			<select name="selectMaquina" id="selectMaquina">
+				<option value="atm001">ATM-001</option>
+				<option value="atm002">ATM-002</option>
+				<option value="atm003">ATM-003</option>
+			</select>
+
+			<table>
+				<tr>
+					<th>Dado1</th>
+					<th>Dado2</th>
+					<th>Dado3</th>
+					<th>Dado4</th>
+				</tr>
+				<tr>
+					<td>Valor1</td>
+					<td>Valor2</td>
+					<td>Valor3</td>
+					<td>Valor4</td>
+				</tr>
+				<tr>
+					<td>Valor1</td>
+					<td>Valor2</td>
+					<td>Valor3</td>
+					<td>Valor4</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+
+</html>

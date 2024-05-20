@@ -1,0 +1,105 @@
+
+.container{
+    margin-left: 210px;
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 35%;
+}
+.spaceRelatorio{
+    width: 60%;
+}
+.conteudo .titulo{
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+.relatorio{
+    background-color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+}
+.relatorio h3{
+    align-self: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.identificacao_ocorrencia p{
+    margin: 0;
+}
+
+.descricao_ocorrencia{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    margin-top: 20px;
+}
+.descricao_ocorrencia span{
+    margin-bottom: 10px;
+}
+
+.lista_relatorio{
+    background-color: #ffffff;
+    box-sizing: border-box;
+    width: 90%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+.data_relatorio{
+    height: auto;
+    overflow-y: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.data_relatorio p{
+    width: 93%;
+    height: auto;
+    
+    align-content: center;
+    text-align: center;
+    background-color: #cccccc;
+    color: #000;
+    font-size: 18px;
+    margin: 7px 0;
+    padding: 12px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.filtro{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    width: 97.5%;
+}
+
+#componente, input{
+    background-color: #cccccc;
+    width: 100px;
+    text-align: center;
+    color: #000;
+}
+

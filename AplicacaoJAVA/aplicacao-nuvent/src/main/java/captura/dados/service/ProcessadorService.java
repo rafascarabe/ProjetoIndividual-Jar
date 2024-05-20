@@ -42,9 +42,9 @@ public class ProcessadorService {
 
     public void inserirDadosProcessador() {
         templateMySQL.getTemplateMySQl().update("""
-                insert into processador (nomeProcessador, modeloProcessador, frequenciaProcessador,
-                qtdProcessadorFisico, qtdProcessadorLogico, fkAtm) values
+                insert into processador (nome, modelo, frequencia,
+                qtdProcessadorFisico, qtdProcessadorLogico, fkInfraAtm) values
                 (?, ?, ?, ?, ?, ?)
-                """, pegarNomeProcessadorLooca(), pegarModeloProcessadorLooca(), pegarFrequenciaProcessadorLooca(), pegarQtdProcessadorFisicoLooca(), pegarQtdProcessadorLogicoLooca(), templateMySQL.pegarIdAtmMaisRecente());
+                """, pegarNomeProcessadorLooca(), pegarModeloProcessadorLooca(), pegarFrequenciaProcessadorLooca(), pegarQtdProcessadorFisicoLooca(), pegarQtdProcessadorLogicoLooca(), templateMySQL.pegarIdInfraAtmMaisRecente());
     }
 }

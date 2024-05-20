@@ -4,21 +4,19 @@ import java.net.Inet4Address;
 
 public class MemoriaModel {
 
-    private Integer idMemoria;
+    private Integer id;
     private String tamanhoTotal;
-    private Integer fkAtm;
-
+    private Integer fkInfraAtm;
 
     public MemoriaModel() {
     }
 
-
-    public Integer getIdMemoria() {
-        return idMemoria;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdMemoria(Integer idMemoria) {
-        this.idMemoria = idMemoria;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTamanhoTotal() {
@@ -29,21 +27,21 @@ public class MemoriaModel {
         this.tamanhoTotal = tamanhoTotal;
     }
 
-    public Integer getFkAtm() {
-        return fkAtm;
+    public Integer getFkInfraAtm() {
+        return fkInfraAtm;
     }
 
-    public void setFkAtm(Integer fkAtm) {
-        this.fkAtm = fkAtm;
+    public void setFkInfraAtm(Integer fkInfraAtm) {
+        this.fkInfraAtm = fkInfraAtm;
     }
 
     @Override
     public String toString() {
-        return "--------MemoriaModel: " +
-                "idMemoria=" + idMemoria +
+        return "MemoriaModel{" +
+                "id=" + id +
                 ", tamanhoTotal='" + tamanhoTotal + '\'' +
-                ", fkAtm=" + fkAtm +
-                '-';
+                ", fkInfraAtm=" + fkInfraAtm +
+                '}';
     }
 }
 

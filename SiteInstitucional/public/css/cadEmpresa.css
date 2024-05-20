@@ -1,0 +1,131 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header {
+    width: 98.5% !important;
+    left: -12px;
+    z-index: 2;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    background-image: url(../assets/fundoEmpresaCadastro.avif);
+    background-size: cover;
+    z-index: 0;
+}
+
+.cadastro-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px;
+}
+
+.cadastro-container h1 {
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+svg {
+    position: absolute;
+    margin-left: 10px;
+    width: 25px;
+}
+
+.campo {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.campo input {
+    padding: 5px 0px;
+    padding-left: 32px;
+    height: 30px;
+    width: 13rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 7px 0px;
+    border-radius: 5px;
+    border: none;
+}
+
+i {
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%);
+}
+
+#icon1 {
+    margin-left: 3px;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 30%;
+    height: 40px;
+    margin: 5px auto;
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.BIG-CONTAINER {
+    display: flex;
+    align-items: start;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(rgba(81, 81, 81, 0.5), rgba(81, 81, 81, 0.5));
+    backdrop-filter: blur(20px);
+    padding: 4%;
+    border-radius: 15px;
+    border: solid rgba(255, 255, 255, 0.616) 2px;
+    height: auto;
+    width: auto;
+    z-index: 1;
+    margin-top: 5%;
+    text-align: center;
+}
+.container h1 {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 600px){ /* Celular */
+    .header img {
+        width: 12%;
+        margin-left: 6px;
+    }
+    .cadastro-container {
+        padding: 3%;
+        border-radius: 15px;
+    }
+    h1 {
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+}

@@ -1,7 +1,9 @@
 package captura.dados.model;
 
+import java.time.LocalDate;
+
 public class RegistroModel {
-    private Integer idRegistro;
+    private Integer id;
     private Integer qtdTotalProcessos;
     private String porcentagemUsoProcessador;
     private String qtdUsoMemoria;
@@ -10,7 +12,7 @@ public class RegistroModel {
     private String qtdUsoDisco;
     private String qtdDisponivelDisco;
     private String porcentagemUsoDisco;
-    private String momentoRegistro;
+    private LocalDate momentoRegistro;
     private Integer fkProcessador;
     private Integer fkMemoria;
     private Integer fkDisco;
@@ -18,12 +20,12 @@ public class RegistroModel {
     public RegistroModel() {
     }
 
-    public Integer getIdRegistro() {
-        return idRegistro;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdRegistro(Integer idRegistro) {
-        this.idRegistro = idRegistro;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getQtdTotalProcessos() {
@@ -90,11 +92,11 @@ public class RegistroModel {
         this.porcentagemUsoDisco = porcentagemUsoDisco;
     }
 
-    public String getMomentoRegistro() {
+    public LocalDate getMomentoRegistro() {
         return momentoRegistro;
     }
 
-    public void setMomentoRegistro(String momentoRegistro) {
+    public void setMomentoRegistro(LocalDate momentoRegistro) {
         this.momentoRegistro = momentoRegistro;
     }
 
@@ -124,8 +126,8 @@ public class RegistroModel {
 
     @Override
     public String toString() {
-        return "\n ----------RegistroModel: " +
-                "idRegistro=" + idRegistro +
+        return "RegistroModel{" +
+                "id=" + id +
                 ", qtdTotalProcessos=" + qtdTotalProcessos +
                 ", porcentagemUsoProcessador='" + porcentagemUsoProcessador + '\'' +
                 ", qtdUsoMemoria='" + qtdUsoMemoria + '\'' +
@@ -134,10 +136,10 @@ public class RegistroModel {
                 ", qtdUsoDisco='" + qtdUsoDisco + '\'' +
                 ", qtdDisponivelDisco='" + qtdDisponivelDisco + '\'' +
                 ", porcentagemUsoDisco='" + porcentagemUsoDisco + '\'' +
-                ", momentoRegistro='" + momentoRegistro + '\'' +
+                ", momentoRegistro=" + momentoRegistro +
                 ", fkProcessador=" + fkProcessador +
                 ", fkMemoria=" + fkMemoria +
                 ", fkDisco=" + fkDisco +
-                '-';
+                '}';
     }
 }

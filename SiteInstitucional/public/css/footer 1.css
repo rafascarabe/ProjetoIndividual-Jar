@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+.footer{
+    
+    background-color: #2781bc;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+
+    padding-top: 20px;
+    margin-top: 20px;
+    height: 60vh;
+}
+.footer .conteudo{
+    display: flex;
+    flex-direction: row;
+}
+/* SOBRE A EMPRESA*/
+
+.footer .conteudo .sobre_empresa{
+    width: 400px;
+    height: 350px;
+    color: #fff;
+
+    padding: 30px;
+}
+
+.footer .conteudo .sobre_empresa .descriao_empresa{
+    border-top: 1px solid #fff;
+    margin-top: 5px;
+    padding-top: 5px;
+    
+}
+
+
+.footer .conteudo .sobre_empresa .entre_em_contato{
+    margin-top: 30px;
+    
+}
+
+.footer .conteudo .sobre_empresa .entre_em_contato h3{
+    margin-bottom: 20px;
+}
+
+input{
+    
+    border: none; /* Remove as bordas padrão */
+    border-bottom: 1px solid white; /* Define a borda inferior branca com 1 pixel de largura */
+    outline: none; /* Remove a borda de foco quando o input está selecionado */
+    color: #fff;
+    background-color: #2781bc;
+    width: 375px;
+    height: 25px;
+    padding-left: 20px; 
+    margin-bottom: 10px;
+}
+
+.footer .conteudo .sobre_empresa .entre_em_contato p{
+    
+    padding-left: 10px;
+    margin: 0 0 0 15px ;
+     /*pro conteúdo ficar com aquela estilização de invadir o campo anterior*/
+    
+
+}
+
+.button{
+    background-color: #213f72;
+    color: #fff;
+    width: 375px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(110%);
+    transition: all 0.3s ease-in-out;
+
+    margin-left: 10px;
+}
+
+/* LINKS */
+.footer .conteudo .links{
+    width: 750px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+   
+    color:#fff; 
+    padding: 20px;
+}
+
+.footer .conteudo .links .lista{
+    width: 300px;
+    
+}
+
+.footer .conteudo .links .lista h3{
+    margin-bottom: 15px;
+}
+
+.footer .conteudo .links .texto h3{
+    margin-bottom: 15px;
+    margin-top: 20px;
+    margin-left: 35px;
+}
+
+.footer .conteudo .links .lista p{
+    cursor: pointer;
+    font-size: 15px;
+    
+}
+
+.footer .conteudo .links .lista p:hover{
+    background-color: #213f72;
+    padding-left: 15px;
+}
+
+.footer .conteudo .links .texto{
+    width: 400px;
+}
+
+.footer .conteudo .links .texto p{
+    margin-top: 2px;
+    line-height: 25px;
+}
+
+/* -------------- ICONES DE REDES SOCIAIS ---------------- */
+/**/.redes-sociais {
+ 
+    list-style: none;
+    display: table;
+    margin: 0;
+    width: 100%;
+    justify-content: start;
+  }
+  
+  .redes-sociais li {
+  
+    display: inline-block;
+    padding: 0;
+    margin-right: 0px;
+    margin-left: 20px;
+  }
+   
+  .redes-sociais li a {
+  
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background:#213f72;
+    color: #ffffff;
+    transition: 0.2s;
+  
+  }
+  
+  .redes-sociais li a i {
+    line-height: 50px !important;
+  }
+  
+  .redes-sociais.vertical {
+    width: 50px;
+  }
+
+  .redes-sociais.vertical li a {
+    background:#213f72;
+    color: #ffffff;
+  }
+   
+  

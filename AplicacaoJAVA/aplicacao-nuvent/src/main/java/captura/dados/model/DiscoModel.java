@@ -2,55 +2,53 @@ package captura.dados.model;
 
 public class DiscoModel {
 
-    private Integer idDisco;
-    private String modeloDisco;
-    private String volumeDisco;
-    private Integer fkAtm;
+    private Integer id;
+    private String modelo;
+    private String volume;
+    private Integer fkInfraAtm;
 
     public DiscoModel() {
-
     }
 
-    public Integer getIdDisco() {
-        return idDisco;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdDisco(Integer idDisco) {
-        this.idDisco = idDisco;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getModeloDisco() {
-        return modeloDisco;
+    public String getModelo() {
+        return modelo;
     }
 
-    public void setModeloDisco(String modeloDisco) {
-        this.modeloDisco = modeloDisco;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
-    public String getVolumeDisco() {
-        return volumeDisco;
+    public String getVolume() {
+        return volume;
     }
 
-    public void setVolumeDisco(String volumeDisco) {
-        this.volumeDisco = volumeDisco;
+    public void setVolume(String volume) {
+        this.volume = volume;
     }
 
-
-    public Integer getFkAtm() {
-        return fkAtm;
+    public Integer getFkInfraAtm() {
+        return fkInfraAtm;
     }
 
-    public void setFkAtm(Integer fkAtm) {
-        this.fkAtm = fkAtm;
+    public void setFkInfraAtm(Integer fkInfraAtm) {
+        this.fkInfraAtm = fkInfraAtm;
     }
 
     @Override
     public String toString() {
-        return "-------- DiscoModel:" +
-                "idDisco=" + idDisco +
-                ", modeloDisco='" + modeloDisco + '\'' +
-                ", volumeDisco='" + volumeDisco + '\'' +
-                ", fkAtm=" + fkAtm +
-                '-';
+        return "DiscoModel{" +
+                "id=" + id +
+                ", modelo='" + modelo + '\'' +
+                ", volume='" + volume + '\'' +
+                ", fkInfraAtm=" + fkInfraAtm +
+                '}';
     }
 }

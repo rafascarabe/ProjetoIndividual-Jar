@@ -1,43 +1,44 @@
 package captura.dados.model;
 
 public class DispositivoUsbModel {
-    private Integer idDispositivoUsb;
-    private String nomeDispositivo;
-    private Integer fkAtm;
+
+    private Integer id;
+    private String nome;
+    private Integer fkInfraAtm;
 
     public DispositivoUsbModel() {
     }
 
-    public Integer getIdDispositivoUsb() {
-        return idDispositivoUsb;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdDispositivoUsb(Integer idDispositivoUsb) {
-        this.idDispositivoUsb = idDispositivoUsb;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNomeDispositivo() {
-        return nomeDispositivo;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeDispositivo(String nomeDispositivo) {
-        this.nomeDispositivo = nomeDispositivo;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public Integer getFkAtm() {
-        return fkAtm;
+    public Integer getFkInfraAtm() {
+        return fkInfraAtm;
     }
 
-    public void setFkAtm(Integer fkAtm) {
-        this.fkAtm = fkAtm;
+    public void setFkInfraAtm(Integer fkInfraAtm) {
+        this.fkInfraAtm = fkInfraAtm;
     }
 
     @Override
     public String toString() {
-        return "---------- DispositivoUsbModel: " +
-                "idDispositivoUsb=" + idDispositivoUsb +
-                ", nomeDispositivo='" + nomeDispositivo + '\'' +
-                ", fkAtm=" + fkAtm +
-                '-';
+        return "DispositivoUsbModel{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", fkInfraAtm=" + fkInfraAtm +
+                '}';
     }
 }

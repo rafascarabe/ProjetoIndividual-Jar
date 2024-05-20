@@ -28,14 +28,12 @@ public class DiscoService {
     }
 
     public void inserirPegarModeloVolumeDiscoLooca() {
-        for (int i = 0; i < pegarListaDiscoLooca().size(); i++) {
-            String modeloDisco = pegarListaDiscoLooca().get(i).getModelo();
-            String volumeDisco = conversor.formatarBytes(pegarListaVolumeLooca().get(i).getTotal());
+            String modeloDisco = pegarListaDiscoLooca().get(0).getModelo();
+            String volumeDisco = conversor.formatarBytes(pegarListaVolumeLooca().get(0).getTotal());
 
             templateMySQL.getTemplateMySQl().update("""
-                insert into disco (modeloDisco, volumeDisco, fkAtm) values
+                insert into disco (modelo, volume, fkInfraAtm) values
                     (?, ?, ?);
-                """, modeloDisco, volumeDisco, templateMySQL.pegarIdAtmMaisRecente());
-        }
+                """, modeloDisco, volumeDisco, templateMySQL.pegarIdInfraAtmMaisRecente());
     }
 }
