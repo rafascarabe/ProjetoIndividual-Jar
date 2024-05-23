@@ -178,11 +178,8 @@ insert into atm values
   
 -- selects do Java
 select * from infraestruturaAtm;
-select * from processador;
-select * from memoria;
-select * from disco;
-select * from dispositivoUsb;
 select * from registro;
-select * from registroUsbConectado;
 select * from atm;
 select * from janelas;
+
+-- select * from infraestruturaAtm where fkAtm = 1 order by id asc limit 1;

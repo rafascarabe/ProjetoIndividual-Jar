@@ -4,12 +4,15 @@ public class JanelaModel {
 
     private Integer idJanela;
     private String titulo;
-    private Integer fkAmt;
+    private Integer fkAtm;
 
     public JanelaModel(Integer idJanela, String titulo,Integer fkAtm) {
         this.idJanela = idJanela;
         this.titulo = titulo;
-        this.fkAmt = fkAtm;
+        this.fkAtm = fkAtm;
+    }
+
+    public JanelaModel() {
     }
 
     public Integer getIdJanela() {
@@ -28,20 +31,20 @@ public class JanelaModel {
         this.titulo = titulo;
     }
 
-    public Integer getFkAmt() {
-        return fkAmt;
+    public Integer getFkAtm() {
+        return fkAtm;
     }
 
-    public void setFkAmt(Integer fkAmt) {
-        this.fkAmt = fkAmt;
+    public void setFkAtm(Integer fkAmt) {
+        this.fkAtm = fkAmt;
     }
 
     @Override
     public String toString() {
-        return "JanelaModel{" +
-                "idJanela=" + idJanela +
-                ", titulo='" + titulo + '\'' +
-                ", fkAmt=" + fkAmt +
+        return "JanelaModel:" +
+                "|idJanela: " + idJanela +
+                ", |titulo:'" + titulo + '\'' +
+                ", |fkAtm:" + fkAtm +
                 '}';
     }
 }

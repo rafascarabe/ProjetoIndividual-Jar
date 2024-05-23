@@ -15,7 +15,7 @@ public class Main {
         TemplateMySQL templateMySQL = new TemplateMySQL();
 
         Integer delay = 1000;
-        Integer intervalo = 10000;
+        Integer intervalo = 5000;
         Timer timer = new Timer();
 
         InfraestruturaAtmService infraestruturaAtmService = new InfraestruturaAtmService();

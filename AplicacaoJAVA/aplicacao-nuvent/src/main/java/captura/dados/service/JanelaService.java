@@ -1,6 +1,7 @@
 package captura.dados.service;
 
 
+import captura.dados.model.AtmModel;
 import captura.dados.template.TemplateMySQL;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.janelas.Janela;
@@ -15,16 +16,25 @@ public class JanelaService {
     JanelaGrupo janelaGrupo = looca.getGrupoDeJanelas();
 
     public void capturarJanelas() {
-        Integer fkAtm = templateMySQL.pegarIdInfraAtmMaisRecente(); // Obtém o ID mais recente apenas uma vez
+        Integer fkAtm = templateMySQL.pegarIdInfraAtm();
 
         List<Janela> listaJanelas = janelaGrupo.getJanelas();
 
-        // Adiciona log para depuração
+        // Log para depuração
         System.out.println("Quantidade de janelas capturadas: " + listaJanelas.size());
 
         for (Janela janela : listaJanelas) {
-            System.out.println("Capturando janela: " + janela.getTitulo() + " com fkAtm: " + fkAtm); // Log para depuração
-            inserirJanela(janela, fkAtm); // Passa o fkAtm obtido para o método de inserção
+            String titulo = janela.getTitulo();
+
+            // IMPORTANTE: Alerta/console.log quando uma janela não autorizada for aberta
+            // DESEJAVEL: criar um mecanismo pra fechar janelas não desejadas
+
+            if (titulo != null && !titulo.isEmpty()) {
+                System.out.println("-------- Capturando janela: " + titulo + " com fkAtm: " + fkAtm); // Log para depuração
+                inserirJanela(janela, fkAtm); // Passa o fkAtm obtido para o método de inserção
+            } else {
+                System.out.println("Janela com título nulo ou vazio ignorada.");
+            }
         }
     }
 

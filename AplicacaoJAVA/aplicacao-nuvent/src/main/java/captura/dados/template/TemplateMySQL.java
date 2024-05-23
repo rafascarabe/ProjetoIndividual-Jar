@@ -20,6 +20,12 @@ public class TemplateMySQL {
                     """, new BeanPropertyRowMapper<>(InfraestruturaAtmModel.class)).getId();
     }
 
+    public Integer pegarIdInfraAtm() {
+        return templateMySQl.queryForObject("""
+                    select * from infraestruturaAtm where fkAtm = 1 order by id asc limit 1;
+                    """, new BeanPropertyRowMapper<>(InfraestruturaAtmModel.class)).getId();//1 limit 1
+    }
+
     public Integer pegarIdProcessadorMaisRecente() {
         return templateMySQl.queryForObject("""
                     select * from processador where fkInfraAtm = ? order by id desc limit 1
